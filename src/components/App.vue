@@ -1,14 +1,19 @@
 <template>
   <div id="app">
+    <Header/>
     <RouterView></RouterView>
   </div>
 </template>
 
 <script>
 import weatherApi from '../services/weather-api.js';
+import Header from './Header.vue';
 export default {
   created() {
     weatherApi.getWeather().then(weather => console.log(weather));
+  },
+  components: {
+    Header
   }
 
   
