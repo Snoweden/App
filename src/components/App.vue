@@ -5,9 +5,13 @@
 </template>
 
 <script>
-
+import weatherApi from '../services/weather-api.js';
 export default {
+  created() {
+    weatherApi.getWeather().then(weather => console.log(weather));
+  }
 
+  
 };
 </script>
 
