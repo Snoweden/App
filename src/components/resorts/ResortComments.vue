@@ -27,13 +27,9 @@ export default {
   },
   methods: {
     submitComment() {
-      console.log('comment submitted');
       this.feedback.profile_id = 1;
       this.feedback.resort_id = 1;
-      userInputApi.addComment(this.feedback)
-        .then(() => {
-          console.log('packaged info', this.feedback);
-        });
+      userInputApi.addComment(this.feedback);
     }
   }
 };

@@ -43,10 +43,6 @@ export default {
       },
     })
 
-      .then(response => {
-        console.log('get request fires at api');
-        response.json();
-
-      });
+      .then(response => response.json());
   }
 };

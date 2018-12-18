@@ -26,25 +26,32 @@ export default {
     return {
       center: { lat:45, lng:-122 }, 
       markers: [
-        {
-          position:  { lat:45, lng:-122 }
-        }, 
-        {
-          position: { lat: 46, lng: -123 }
-        }
+        // {
+        //   position: { lat:45, lng:-122 }
+        // }, 
+        // {
+        //   position: { lat: 46, lng: -123 }
+        // }
       ] 
     };
   }, 
   created() {
     api.getMarkers()
-      .then(resort => {
-        console.log('this is the created method', resort);
+      .then(markers => {
+        console.log(markers);
+        let markerList = [];
+        markers.forEach(marker => {
+          let temp = {};
+          temp.position = { lat: marker.coordinate_lat, lng: marker.coordinate_lon };
+          markerList.push(temp);
+        });
+        this.markers = markerList;
+        console.log('markers', this.markers);
       });
   },
 
   methods: {
     onMarkerClick() {
-      console.log('marker has been clicked');
 
     }
   },
