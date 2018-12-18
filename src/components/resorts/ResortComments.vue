@@ -5,10 +5,6 @@
         <textarea v-model="feedback.comment" rows="4" cols="50" name="comment" placeholder="Enter comment..."></textarea>
       <button>Submit</button>
     </form>
-
-    <div>
-
-    </div>
   </div>
 </template>
 

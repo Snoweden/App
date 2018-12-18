@@ -37,7 +37,6 @@
 </template>
 
 <script>
-
 import serverApi from '../services/server-api';
 
 export default {
