@@ -1,8 +1,18 @@
 <template>
-  <div>
+  <div v-if="token">
     <StarRating />
-    <ResortComments
-      v-if="token" />
+    <ResortComments />
+  </div>
+
+  <div v-else>
+    <p>You're not logged in.  Sign in to view content</p>
+    <RouterLink to="/login">
+      <button>Sign In</button>
+    </RouterLink>
+
+    <!-- <RouterLink to="/sign">
+      <button>Sign Up</button>
+    </RouterLink> -->
   </div>
 </template>
 

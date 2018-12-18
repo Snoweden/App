@@ -54,7 +54,10 @@ export default {
   methods: {
     onSignIn() {
       serverApi.signIn(this.signIn)
-        .then(token => serverApi.setToken(token));
+        .then(token => {
+          serverApi.setToken(token);
+          this.$router.push('/');
+        });
     },
     onSignUp() {
       serverApi.signUp(this.signUp)
