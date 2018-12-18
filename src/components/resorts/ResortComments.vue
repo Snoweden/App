@@ -2,7 +2,7 @@
   <div>
     <form @submit.prevent="submitComment">
       <label>Comment:</label>
-      <textarea rows="4" cols="50" name="comment" placeholder="Enter comment..."></textarea>
+        <textarea v-model="comment" rows="4" cols="50" name="comment" placeholder="Enter comment..."></textarea>
       <button>Submit</button>
     </form>
 
@@ -12,11 +12,34 @@
   </div>
 </template>
 
+<!-- ////////////////////
+Fix the object Object in the input text area.
+API receives text from box
+//////////////////// -->
+
 <script>
+import userInputApi from '../../services/userInput-api';
+
+function initComment() {
+  return {
+    comment: ''
+  };
+}
+
 export default {
+  data() {
+    return {
+      comment: initComment()
+    }
+  },
   methods: {
     submitComment() {
       console.log('comment submitted');
+      userInputApi.addComment(this.comment)
+        .then(() => {
+          console.log('packaged info', this.comment);
+          this.comment = initComment();
+        });
     }
   }
 };
