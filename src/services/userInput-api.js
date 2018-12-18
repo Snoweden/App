@@ -1,15 +1,16 @@
 export default {
-  addComment(comment) {
-    return fetch('/api/user-input/feedback', {
+  addComment(feedback) {
+    console.log(feedback);
+    return fetch('/api/userinput/feedback', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(comment)
+      body: JSON.stringify(feedback)
     })
       .then(response => {
-        console.log('response from api on add comment', comment);
-        response.json();
-      }) ;
+        console.log('response from api on add comment', response);
+        return response.json();
+      });
   }
 };
