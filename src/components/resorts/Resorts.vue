@@ -6,12 +6,12 @@
             map-type-id="terrain"
             style="width: 500px; height: 300px">
             <GmapMarker
-                :key="index"
-                v-for="(m, index) in markers"
+                :key="m.id"
+                v-for="m in markers"
                 :position="m.position"
                 :clickable="true"
                 :draggable="true"
-                @click="onMarkerClick"/>
+                @click="onMarkerClick(m.id)"/>
         </GmapMap>
         <ResortDetail />
     </section>
@@ -34,6 +34,7 @@ export default {
         let markerList = [];
         markers.forEach(marker => {
           let temp = {};
+          temp.id = marker.id;
           temp.position = { lat: marker.coordinate_lat, lng: marker.coordinate_lon };
           markerList.push(temp);
         });
@@ -42,8 +43,8 @@ export default {
   },
 
   methods: {
-    onMarkerClick() {
-
+    onMarkerClick(id) {
+      this.$router.push(`/resorts/${id}`);
     }
   },
   components: {
