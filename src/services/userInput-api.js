@@ -11,6 +11,5 @@ export default {
         console.log('response from api on add comment', comment);
         response.json();
       }) ;
-      
   }
 };

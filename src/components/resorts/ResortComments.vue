@@ -20,17 +20,11 @@ API receives text from box
 <script>
 import userInputApi from '../../services/userInput-api';
 
-function initComment() {
-  return {
-    comment: ''
-  };
-}
-
 export default {
   data() {
     return {
-      comment: initComment()
-    }
+      comment: ''
+    };
   },
   methods: {
     submitComment() {
@@ -38,7 +32,6 @@ export default {
       userInputApi.addComment(this.comment)
         .then(() => {
           console.log('packaged info', this.comment);
-          this.comment = initComment();
         });
     }
   }
