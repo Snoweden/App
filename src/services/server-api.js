@@ -34,5 +34,15 @@ export default {
             return Promise.reject(error);
           });
       });
+  }, 
+  getMarkers() {
+    return fetch('/api/map/markers', {
+      method: 'GET'
+    })
+      .then(response => {
+        console.log('get request fires at api');
+        response.json();
+
+      });
   }
 };
