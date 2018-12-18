@@ -1,4 +1,14 @@
+let token = '';
+
 export default {
+  setToken(t) {
+    token = t;
+  },
+
+  getToken() {
+    return token;
+  },
+
   signIn(profile) {
     return fetch('/api/auth/signin', {
       method: 'POST',
@@ -17,6 +27,7 @@ export default {
           });
       });
   },
+
   signUp(profile) {
     return fetch('/api/auth/signup', {
       method: 'POST',
@@ -34,7 +45,8 @@ export default {
             return Promise.reject(error);
           });
       });
-  }, 
+  },
+
   getMarkers() {
     return fetch('/api/map/markers', {
       method: 'GET',
@@ -42,7 +54,6 @@ export default {
         'Content-Type': 'application/json'
       },
     })
-
       .then(response => response.json());
   }
 };

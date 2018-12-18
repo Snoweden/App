@@ -53,10 +53,12 @@ export default {
   },
   methods: {
     onSignIn() {
-      serverApi.signIn(this.signIn);
+      serverApi.signIn(this.signIn)
+        .then(token => serverApi.setToken(token));
     },
     onSignUp() {
-      serverApi.signUp(this.signUp);
+      serverApi.signUp(this.signUp)
+        .then(token => serverApi.setToken(token));
     }
   }
 };

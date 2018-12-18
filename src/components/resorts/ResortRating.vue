@@ -1,6 +1,6 @@
 <template>
   <div>
-    <StarRating v-model="rating"></StarRating>
+    <StarRating></StarRating>
   </div>
 </template>
 

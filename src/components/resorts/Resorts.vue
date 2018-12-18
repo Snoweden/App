@@ -13,13 +13,13 @@
                 :draggable="true"
                 @click="onMarkerClick(m.id)"/>
         </GmapMap>
-        <ResortDetail />
+        <!-- <ResortDetail /> -->
     </section>
 </template>
 
 <script>
 import api from '../../services/server-api';
-import ResortDetail from './ResortDetail';
+// import ResortDetail from './ResortDetail';
 
 export default {
   data() {
@@ -48,13 +48,12 @@ export default {
     }
   },
   components: {
-    ResortDetail
+    // ResortDetail
   }
 
 };
 </script>
 
 <style>
-
 
 </style>
