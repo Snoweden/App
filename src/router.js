@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 import Home from './components/home/Home';
-import Resorts from './components/Resorts';
+import Resorts from './components/resorts/Resorts';
 import About from './components/About';
 import Login from './components/Login';
 
