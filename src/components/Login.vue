@@ -7,7 +7,7 @@
                     <input v-model="signIn.username" required>
                 </label>
                 <label>Password:
-                    <input v-model="signIn.password" required>
+                    <input v-model="signIn.password" type="password" required>
                 </label>
                 <button>Log In</button>
                 <p>
@@ -24,7 +24,7 @@
                     <input v-model="signUp.username" required>
                 </label>
                 <label>Password:
-                    <input v-model="signUp.password" required>
+                    <input v-model="signUp.password" type="password" required>
                 </label>
                 <button>Sign Up</button>
                 <p>
