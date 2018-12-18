@@ -40,8 +40,8 @@ export default {
         .then(user => console.log('returned user', user));
     },
     onSignUp() {
-        serverApi.signUp(this.signUp)
-            .then(user => console.log('returned new user', user));
+      serverApi.signUp(this.signUp)
+        .then(user => console.log('returned new user', user));
     }
   }
 };

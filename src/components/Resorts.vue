@@ -37,7 +37,6 @@ export default {
       .then(resort => {
         console.log('this is the created method', resort);
       });
-
   },
 
   methods: {

@@ -37,8 +37,12 @@ export default {
   }, 
   getMarkers() {
     return fetch('/api/map/markers', {
-      method: 'GET'
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
     })
+
       .then(response => {
         console.log('get request fires at api');
         response.json();
