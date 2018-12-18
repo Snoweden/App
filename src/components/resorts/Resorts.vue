@@ -25,20 +25,12 @@ export default {
   data() {
     return {
       center: { lat:45, lng:-122 }, 
-      markers: [
-        // {
-        //   position: { lat:45, lng:-122 }
-        // }, 
-        // {
-        //   position: { lat: 46, lng: -123 }
-        // }
-      ] 
+      markers: []
     };
   }, 
   created() {
     api.getMarkers()
       .then(markers => {
-        console.log(markers);
         let markerList = [];
         markers.forEach(marker => {
           let temp = {};
@@ -46,7 +38,6 @@ export default {
           markerList.push(temp);
         });
         this.markers = markerList;
-        console.log('markers', this.markers);
       });
   },
 
