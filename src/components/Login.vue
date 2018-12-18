@@ -36,12 +36,10 @@ export default {
   },
   methods: {
     onSignIn() {
-      serverApi.signIn(this.signIn)
-        .then(user => console.log('returned user', user));
+      serverApi.signIn(this.signIn);
     },
     onSignUp() {
-      serverApi.signUp(this.signUp)
-        .then(user => console.log('returned new user', user));
+      serverApi.signUp(this.signUp);
     }
   }
 };
