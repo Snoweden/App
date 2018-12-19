@@ -6,9 +6,11 @@
                 <label>Username:
                     <input v-model="signIn.username" required>
                 </label>
+                <br />
                 <label>Password:
                     <input v-model="signIn.password" type="password" required>
                 </label>
+                <br />
                 <button>Log In</button>
                 <p>
                     Need to register?
@@ -23,9 +25,11 @@
                 <label>Username:
                     <input v-model="signUp.username" required>
                 </label>
+                <br />
                 <label>Password:
                     <input v-model="signUp.password" type="password" required>
                 </label>
+                <br />
                 <button>Sign Up</button>
                 <p>
                     Already have an account?
@@ -68,5 +72,7 @@ export default {
 </script>
 
 <style>
-
+    #login {
+        color: white;
+    }
 </style>

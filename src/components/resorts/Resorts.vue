@@ -4,14 +4,14 @@
             :center="center"
             :zoom="7"
             map-type-id="terrain"
-            style="width: 500px; height: 300px">
+            style="width: 1000px; height: 600px">
             <GmapMarker
                 :key="m.id"
                 v-for="m in markers"
                 :position="m.position"
                 :clickable="true"
                 :draggable="true"
-                @click="onMarkerClick(m.id)"/>
+                @click="onMarkerClick(m.id)" />
         </GmapMap>
         <!-- <ResortDetail /> -->
     </section>
