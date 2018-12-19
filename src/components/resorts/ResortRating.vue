@@ -37,7 +37,7 @@ export default {
       this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " stars"
     },
     setCurrentSelectedRating: function(rating) {
-      this.currentSelectedRating = "You have Selected: " + rating + " stars";
+      this.currentSelectedRating = "You have selected: " + rating + " stars";
     },
     submitStarRating() {
       this.feedback.profileId = serverApi.getToken();

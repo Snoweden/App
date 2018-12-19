@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section id="login">
         <div v-if="method === 'signin'">
             <form @submit.prevent="onSignIn">
                 <h3>Log In:</h3>
