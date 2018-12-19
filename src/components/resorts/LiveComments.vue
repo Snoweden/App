@@ -1,10 +1,12 @@
 <template>
   <section>
     <h2>Live Comments:</h2>
-    {{comments}}
-    <!-- <ul>
-      <li v-for="feedba in comments"></li>
-    </ul> -->
+    <ul>
+      <li v-for="(feed, index) in feedback"
+          :key="index">
+          {{feed.user}}: {{feed.comment}}
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -15,12 +17,12 @@ import feedbackApi from '../../services/feedback-api';
 export default {
   data() {
     return {
-      comments: []
+      feedback: []
     };
   },
   created() {
     feedbackApi.getComments(this.$route.params.id)
-      .then(comments => this.comments = comments);
+      .then(feedback => this.feedback = feedback);
   }
 };
 </script>
