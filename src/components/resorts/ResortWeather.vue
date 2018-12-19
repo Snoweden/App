@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="weather">
     <tr>
       <th>
         Condition
@@ -20,7 +20,7 @@
       <td>
         Humidity
       </td>
-      <td>
+      <td >
         {{ weather.main.humidity }}
       </td>
     </tr>
@@ -53,28 +53,26 @@
 
 <script>
 import weatherApi from '../../services/weather-api';
-import serverApi from '../../services/server-api';
 export default {
   data() {
     return {
       weather: null,
-      coord: null
-    }
+      coord: null,
+    };
+  },
+
+  props: {
+    resort: Object
   },
 
   created() {
-    weatherApi.getWeather(lat, lon)
+    weatherApi.getWeather(this.resort.coordinate_lat, this.resort.coordinate_lon)
       .then(w => {
         this.weather = w;
+        console.log('weather api call', this.weather);
       });
-
-
-        serverApi.getMarkers()
-        .then(c => {
-          this.coord = c;  //console.log('serverApi log'))};
-        });      
   }
-}
+};
 </script>
 
 <style>

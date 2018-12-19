@@ -2,7 +2,9 @@
   <div v-if="token">
     <StarRating />
     <ResortComments />
-    <ResortWeather />
+    <ResortWeather
+    v-if="resort"
+    :resort="resort" />
   </div>
 
   <div v-else>
@@ -23,7 +25,8 @@ import ResortWeather from './ResortWeather';
 export default {
   data() {
     return {
-      token: false
+      token: false,
+      resort: null
     };
   },
   components: {
@@ -33,6 +36,14 @@ export default {
   },
   created() {
     this.token = serverApi.getToken();
+
+    serverApi.getResortByid(this.$route.params.id)
+      .then(resort => {
+        console.log('created method fires for resort by id');
+        this.resort = resort;
+        console.log(this.resort);
+      });
+
   }
 };
 </script>
