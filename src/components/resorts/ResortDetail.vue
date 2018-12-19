@@ -1,7 +1,19 @@
 <template>
   <div v-if="token">
+    <section 
+    v-if="resort"
+    class="details">
+      {{resort.resort_name}}<br>
+      {{resort.description}}<br>
+      {{resort.address}}<br>
+      {{resort.url}}<br>
+    </section>
+
     <StarRating />
     <ResortComments />
+    <ResortWeather
+    v-if="resort"
+    :resort="resort" />
     <ResortWeather />
     <LiveComments />
   </div>
@@ -25,7 +37,8 @@ import LiveComments from './LiveComments';
 export default {
   data() {
     return {
-      token: false
+      token: false,
+      resort: null
     };
   },
   components: {
@@ -36,10 +49,22 @@ export default {
   },
   created() {
     this.token = serverApi.getToken();
+
+    serverApi.getResortByid(this.$route.params.id)
+      .then(resort => {
+        console.log('created method fires for resort by id');
+        this.resort = resort;
+        console.log(this.resort);
+      });
+
   }
 };
 </script>
 
 <style>
+.detail {
+  display: inline-block;
+  
+}
 
 </style>
