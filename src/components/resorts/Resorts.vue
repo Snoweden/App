@@ -22,6 +22,7 @@ import api from '../../services/server-api';
 // import ResortDetail from './ResortDetail';
 
 export default {
+  
   data() {
     return {
       center: { lat:45, lng:-122 }, 

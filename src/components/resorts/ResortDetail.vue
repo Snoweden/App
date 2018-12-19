@@ -2,6 +2,7 @@
   <div v-if="token">
     <StarRating />
     <ResortComments />
+    <ResortWeather />
   </div>
 
   <div v-else>
@@ -17,6 +18,7 @@
 import ResortComments from './ResortComments';
 import StarRating from './ResortRating';
 import serverApi from '../../services/server-api.js';
+import ResortWeather from './ResortWeather';
 
 export default {
   data() {
@@ -26,7 +28,8 @@ export default {
   },
   components: {
     ResortComments,
-    StarRating
+    StarRating,
+    ResortWeather
   },
   created() {
     this.token = serverApi.getToken();
