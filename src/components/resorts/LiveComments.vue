@@ -1,6 +1,7 @@
 <template>
   <section>
     <h2>Live Comments:</h2>
+    {{comments}}
     <!-- <ul>
       <li v-for="feedba in comments"></li>
     </ul> -->
