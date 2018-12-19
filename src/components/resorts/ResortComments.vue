@@ -7,10 +7,15 @@
       <button>Submit</button>
     </form>
 
+    <br />
+    
     <form @submit.prevent="submitComment">
       <label>Adult All-Day Ticket Price:
         <input type="number" v-model="feedback.ticketPrice">
       </label>
+
+      <br />
+      <br />
 
       <label>Who Are You?
         <select v-model="feedback.who">
@@ -22,6 +27,9 @@
           <option value="md">Mischievous Deliquent</option>
         </select>
       </label>
+
+      <br />
+      <br />
 
       <label>How crowded is the resort?
         <input type="number" v-model="feedback.crowded">

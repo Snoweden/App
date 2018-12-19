@@ -1,6 +1,10 @@
 <template>
   <div v-if="token">
     <StarRating />
+    <br />
+    <br />
+    <br />
+    <br />
     <ResortComments />
   </div>
 
