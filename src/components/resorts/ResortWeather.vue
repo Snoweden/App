@@ -69,7 +69,6 @@ export default {
     weatherApi.getWeather(this.resort.coordinate_lat, this.resort.coordinate_lon)
       .then(w => {
         this.weather = w;
-        console.log('weather api call', this.weather);
       });
   }
 };

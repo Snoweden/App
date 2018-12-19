@@ -51,12 +51,7 @@ export default {
     return fetch(`/api/map/resort/${id}`, {
       method: 'GET'
     })
-      .then(response => {
-        console.log('api call on resort ID RESPONSE', response);
-
-        return response.json();
-        
-      });
+      .then(response => response.json());
 
   },
 
