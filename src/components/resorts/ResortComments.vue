@@ -26,7 +26,7 @@
       <label>How crowded is the resort?
         <input type="number" v-model="feedback.crowded">
       </label>
-      
+
       <button>Submit</button>
     </form>
   </div>
@@ -50,7 +50,6 @@ export default {
     submitComment() {
       this.feedback.profileId = serverApi.getToken();
       this.feedback.resortId = this.$route.params.id;
-      console.log(this.feedback);
       userInputApi.addComment(this.feedback);
     }
   }

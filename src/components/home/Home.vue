@@ -1,12 +1,24 @@
 <template>
   <div>
-    <h1>Hello World</h1>
+    <h1>Welcome to Snoweden!</h1>
+
+    <h3>Hello {{user}}</h3>
   </div>
 </template>
 
 <script>
-export default {
 
+import serverApi from '../../services/server-api';
+
+export default {
+  data() {
+    return {
+      user: ''
+    };
+  },
+  created() {
+    this.user = serverApi.getToken().username;
+  }
 };
 </script>
 
