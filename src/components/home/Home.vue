@@ -1,15 +1,24 @@
 <template>
   <div>
-    <h1>Hello World</h1>
-    <resortWeather/>
+    <h1>Welcome to Snoweden!</h1>
+
+    <h3>Hello {{user}}</h3>
   </div>
 </template>
 
 <script>
-import resortWeather from '../resorts/ResortWeather';
+
+
+import serverApi from '../../services/server-api';
+
 export default {
-  components: {
-    resortWeather
+  data() {
+    return {
+      user: ''
+    };
+  },
+  created() {
+    this.user = serverApi.getToken().username;
   }
 };
 </script>

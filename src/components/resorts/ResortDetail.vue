@@ -11,9 +11,6 @@
       <button>Sign In</button>
     </RouterLink>
 
-    <!-- <RouterLink to="/sign">
-      <button>Sign Up</button>
-    </RouterLink> -->
   </div>
 </template>
 
