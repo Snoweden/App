@@ -1,5 +1,6 @@
 <template>
     <section>
+      <div id="gmap">
         <GmapMap
             :center="center"
             :zoom="7"
@@ -13,22 +14,36 @@
                 :draggable="true"
                 @click="onMarkerClick(m.id)" />
         </GmapMap>
-        <!-- <ResortDetail /> -->
+      </div>
+        <select v-model="resort">
+          <option
+            v-for="resort in allResorts"
+            v-bind:key="resort.id"
+            v-bind:value="resort.id">
+            {{resort.resort_name}}
+          </option>
+        </select>
+        <!-- <button @click="getResorts">asd</button> -->
     </section>
 </template>
 
 <script>
 import api from '../../services/server-api';
-// import ResortDetail from './ResortDetail';
 
 export default {
-  
   data() {
     return {
       center: { lat:45, lng:-122 }, 
-      markers: []
+      markers: [],
+      allResorts: [],
+      selected: ''
     };
-  }, 
+  },
+
+  props: {
+    resorts: Array
+  },
+
   created() {
     api.getMarkers()
       .then(markers => {
@@ -41,20 +56,32 @@ export default {
         });
         this.markers = markerList;
       });
+    api.getResorts()
+      .then(resorts => {
+        this.allResorts = resorts;
+        console.log(this.allResorts);
+      });
   },
 
   methods: {
     onMarkerClick(id) {
       this.$router.push(`/resorts/${id}`);
-    }
-  },
-  components: {
-    // ResortDetail
-  }
+    },
 
+    getResorts() {
+      api.getResorts()
+        .then(resorts => {
+          this.allResorts = resorts;
+          console.log(this.allResorts);
+        });
+    }
+  }
 };
 </script>
 
 <style>
-
+#gmap {
+  display: flex;
+  justify-content: center;
+}
 </style>
