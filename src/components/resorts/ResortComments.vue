@@ -12,7 +12,7 @@
         <input type="number" v-model="feedback.ticketPrice">
       </label>
 
-      <label>Who Are You?:
+      <label>Who Are You?
         <select v-model="feedback.who">
           <option disabled value="">Please select one</option>
           <option value="skier">Skier</option>
@@ -22,6 +22,11 @@
           <option value="md">Mischievous Deliquent</option>
         </select>
       </label>
+
+      <label>How crowded is the resort?
+        <input type="number" v-model="feedback.crowded">
+      </label>
+      
       <button>Submit</button>
     </form>
   </div>
