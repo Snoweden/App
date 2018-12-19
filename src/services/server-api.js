@@ -47,6 +47,19 @@ export default {
       });
   },
 
+  getResortByid(id) {
+    return fetch(`/api/map/resort/${id}`, {
+      method: 'GET'
+    })
+      .then(response => {
+        console.log('api call on resort ID RESPONSE', response);
+
+        return response.json();
+        
+      });
+
+  },
+
   getMarkers() {
     return fetch('/api/map/markers', {
       method: 'GET',

@@ -1,10 +1,13 @@
 <template>  
     <header>
         <nav>
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/resorts">Resorts</RouterLink>
-            <RouterLink to="/about">About</RouterLink>
-            <RouterLink to="/login">Sign Up/In</RouterLink>
+            <RouterLink class="link" to="/">Home</RouterLink>
+            <RouterLink
+            class="link"  to="/resorts">Resorts</RouterLink>
+            <RouterLink 
+            class="link" to="/about">About</RouterLink>
+            <RouterLink 
+            class="link" to="/login">Sign Up/In</RouterLink>
         </nav>
     </header>
 
@@ -15,5 +18,20 @@
 </script>
 
 <style>
+    body {
+        color: white;
+        background: rgb(102, 143, 232);
+    }
+
+    nav {
+        max-width: 50%;
+        font-size: 35px;
+        background: rgb(0, 166, 255);
+        
+    }; 
+    .link {
+        margin: 10px;
+
+    }
 
 </style>
