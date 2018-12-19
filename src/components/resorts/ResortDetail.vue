@@ -1,5 +1,14 @@
 <template>
   <div v-if="token">
+    <section 
+    v-if="resort"
+    class="details">
+      {{resort.resort_name}}<br>
+      {{resort.description}}<br>
+      {{resort.address}}<br>
+      {{resort.url}}<br>
+    </section>
+
     <StarRating />
     <ResortComments />
     <ResortWeather
@@ -49,5 +58,9 @@ export default {
 </script>
 
 <style>
+.detail {
+  display: inline-block;
+  
+}
 
 </style>
