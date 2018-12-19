@@ -1,16 +1,21 @@
 <template>
   <div>
-    <form @submit.prevent="submitComment">
+    <form @submit.prevent="submitComment" id="comment">
       <label>Comment:
         <textarea v-model="feedback.comment" rows="4" cols="50" name="comment" placeholder="Enter comment..."></textarea>
       </label>
       <button>Submit</button>
     </form>
 
-    <form @submit.prevent="submitComment">
+    <br />
+
+    <form @submit.prevent="submitComment" id="user-questions">
       <label>Adult All-Day Ticket Price:
         <input type="number" v-model="feedback.ticketPrice">
       </label>
+
+      <br />
+      <br />
 
       <label>Who Are You?
         <select v-model="feedback.who">
@@ -23,18 +28,17 @@
         </select>
       </label>
 
+      <br />
+      <br />
+
       <label>How crowded is the resort?
         <input type="number" v-model="feedback.crowded">
       </label>
-
+      <br />
       <button>Submit</button>
     </form>
   </div>
 </template>
-
-<!-- ////////////////////
-API receives text from box
-//////////////////// -->
 
 <script>
 import userInputApi from '../../services/userInput-api';
@@ -57,5 +61,16 @@ export default {
 </script>
 
 <style>
+#comment {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  background: lightgray;
+}
 
+#user-questions {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 10px;
+}
 </style>
