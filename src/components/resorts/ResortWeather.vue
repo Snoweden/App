@@ -53,24 +53,28 @@
 
 <script>
 import weatherApi from '../../services/weather-api';
-
+import serverApi from '../../services/server-api';
 export default {
   data() {
     return {
-      weather: null //or {}
+      weather: null,
+      coord: null
     }
   },
+
   created() {
-    weatherApi.getWeather()
+    weatherApi.getWeather(lat, lon)
       .then(w => {
         this.weather = w;
       });
-    // console.log(this.weather)
+
+
+        serverApi.getMarkers()
+        .then(c => {
+          this.coord = c;  //console.log('serverApi log'))};
+        });      
   }
-
-
-
-};
+}
 </script>
 
 <style>
