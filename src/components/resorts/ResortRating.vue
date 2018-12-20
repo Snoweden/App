@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent="submitStarRating">
-    <div @mouseleave="showCurrentRating(0)" style="display:inline-block;">
+    <div @mouseleave="showCurrentRating" style="display:inline-block;">
       <StarRating @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating"></StarRating>
-      <div style="margin-top:10px;font-weight:bold;">{{currentRating}}</div>
+      <div style="margin-top:10px;font-weight:bold;">You have selected: {{currentRating}} stars</div>
     </div>
     <br />
     <button>Submit</button>
@@ -17,12 +17,14 @@ import userInputApi from '../../services/userInput-api';
 export default {
   data() {
     return {
-      rating: 'No Rating Selected',
-      currentRating: 'No Rating',
-      currentSelectedRating: 'No Current Rating',
+      rating: '',
+      currentRating: '',
+      currentSelectedRating: '',
       boundRating: 3,
       feedback: {
-        StarRating: ''
+        StarRating: null,
+        profileId: '',
+        resortId: ''
       }
     };
   },
@@ -30,19 +32,20 @@ export default {
     StarRating
   },
   methods: {
-    setRating: function(rating) {
-      this.rating = "You have Selected: " + rating + " stars";
-    },
-    showCurrentRating: function(rating) {
-      this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " stars"
+    showCurrentRating: function() {
+      this.currentRating = this.rating;
+      this.feedback.StarRating = this.rating;
     },
     setCurrentSelectedRating: function(rating) {
-      this.currentSelectedRating = "You have Selected: " + rating + " stars";
+      this.currentSelectedRating = rating;
+      this.feedback.StarRating = rating;
     },
     submitStarRating() {
-      this.feedback.profileId = serverApi.getToken();
+      this.feedback.profileId.id = serverApi.getToken();
+      console.log(serverApi.getToken());
       this.feedback.resortId = this.$route.params.id;
       userInputApi.addStarRating(this.feedback);
+      console.log('asdfa', this.feedback.StarRating);
     }
   }
 };

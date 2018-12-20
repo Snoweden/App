@@ -10,8 +10,10 @@
     </section>
 
     <StarRating />
+
     <br />
     <br />
+    
     <ResortComments />
     <ResortWeather
     v-if="resort"

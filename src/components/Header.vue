@@ -39,11 +39,10 @@ export default {
         max-width: 50%;
         font-size: 35px;
         background: rgb(0, 166, 255);
-        
-    }; 
+    }
+
     .link {
         margin: 10px;
-
     }
 
 </style>

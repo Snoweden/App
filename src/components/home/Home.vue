@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="home">
     <h1>Welcome to Snoweden!</h1>
 
     <h3 v-if="user">Hello {{user}}</h3>
@@ -25,7 +25,10 @@ export default {
 
 <style>
   body {
-        background: rgb(102, 143, 232);
-    }
+    background: rgb(102, 143, 232);
+  }
 
+  #home {
+    color: white;
+  }
 </style>

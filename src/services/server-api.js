@@ -72,5 +72,15 @@ export default {
       },
     })
       .then(response => response.json());
+  },
+
+  getResorts() {
+    return fetch('/api/map/resortall', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => response.json());
   }
 };
