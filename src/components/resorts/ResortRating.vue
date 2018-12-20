@@ -52,5 +52,7 @@ export default {
 </script>
 
 <style>
-
+#starrating {
+  margin: 10px;
+}
 </style>
