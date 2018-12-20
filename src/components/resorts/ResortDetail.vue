@@ -8,7 +8,7 @@
       {{resort.address}}<br>
       {{resort.url}}<br>
     </section>
-
+    <ResortWeather />
     <StarRating />
 
     <br />

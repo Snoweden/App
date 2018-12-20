@@ -1,5 +1,5 @@
 <template>
-  <div v-if="weather">
+  <div id="weather" v-if="weather">
     <tr>
       <th>
         Condition
@@ -75,5 +75,7 @@ export default {
 </script>
 
 <style>
-
+#weather {
+  color: white;
+}
 </style>
