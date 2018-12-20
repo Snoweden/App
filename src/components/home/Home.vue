@@ -5,21 +5,14 @@
     <h3 v-if="user">Hello {{user}}</h3>
   <div v-if="stats">
 
-    <H4>Today`s Top Pick</H4>
+    <H4>Your Top 3 Picks!</H4>
     <table>
-      <thead>
-        <tr>
-          <th>
-            
-          </th>
-        </tr>
-      </thead>
       <tbody>
         <tr v-for="stat in stats"
           :key="stat.resortId">
-          <td>{{stat.avg}}</td>
-          <td>{{stat.resortId}}</td>
-
+          <td>{{stat.resort_name}}</td>
+          <td>{{stat.avg}}/5</td>
+          <td></td>
         </tr>
       </tbody>
     </table>
@@ -50,7 +43,7 @@ export default {
         console.log();
         this.stats = stats;
       });
-  }
+  }, 
 };
 </script>
 
