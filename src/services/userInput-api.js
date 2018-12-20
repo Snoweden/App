@@ -31,7 +31,6 @@ export default {
 
     })
       .then(response => {
-        console.log();
         return response.json();
       });
   }

@@ -67,7 +67,11 @@ export default {
     },
     onSignUp() {
       serverApi.signUp(this.signUp)
-        .then(token => serverApi.setToken(token));
+        .then(profile => {
+          serverApi.setUser(profile);
+          serverApi.setToken(profile.token);
+          this.$router.push('/');
+        });
     }
   }
 };
