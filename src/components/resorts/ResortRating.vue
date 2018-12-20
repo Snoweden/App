@@ -1,11 +1,9 @@
 <template>
   <form @submit.prevent="submitStarRating">
     <div @mouseleave="showCurrentRating" style="display:inline-block;">
-      <StarRating @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating"></StarRating>
+      <StarRating v-model="rated" @click.native="onRated"></StarRating>
       <div style="margin-top:10px;font-weight:bold;">You have selected: {{currentRating}} stars</div>
     </div>
-    <br />
-    <button>Submit</button>
   </form>
 </template>
 
@@ -17,9 +15,10 @@ import userInputApi from '../../services/userInput-api';
 export default {
   data() {
     return {
+      rated: 0,
       rating: '',
       currentRating: '',
-      currentSelectedRating: '',
+      currentSelectedRating: 0,
       boundRating: 3,
       feedback: {
         StarRating: null,
@@ -32,6 +31,9 @@ export default {
     StarRating
   },
   methods: {
+    onRated: function() {
+      console.log(this.rated);
+    },
     showCurrentRating: function() {
       this.currentRating = this.rating;
       this.feedback.StarRating = this.rating;
