@@ -52,10 +52,7 @@ export default {
       method: 'GET'
     })
       .then(response => {
-        console.log('api call on resort ID RESPONSE', response);
-
         return response.json();
-        
       });
 
   },

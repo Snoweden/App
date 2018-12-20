@@ -1,5 +1,17 @@
 <template>
     <section>
+      <br />
+      <label id="drop-down">Select a Resort:</label>
+      <select v-model="resorts">
+          <option
+            v-for="resort in allResorts"
+            v-bind:key="resort.id"
+            v-bind:value="resort.id">
+            {{resort.resort_name}}
+          </option>
+      </select>
+      <br />
+      <br />
       <div id="gmap">
         <GmapMap
             :center="center"
@@ -15,15 +27,6 @@
                 @click="onMarkerClick(m.id)" />
         </GmapMap>
       </div>
-        <select v-model="resort">
-          <option
-            v-for="resort in allResorts"
-            v-bind:key="resort.id"
-            v-bind:value="resort.id">
-            {{resort.resort_name}}
-          </option>
-        </select>
-        <!-- <button @click="getResorts">asd</button> -->
     </section>
 </template>
 
@@ -56,10 +59,10 @@ export default {
         });
         this.markers = markerList;
       });
+
     api.getResorts()
       .then(resorts => {
         this.allResorts = resorts;
-        console.log(this.allResorts);
       });
   },
 
@@ -72,8 +75,11 @@ export default {
       api.getResorts()
         .then(resorts => {
           this.allResorts = resorts;
-          console.log(this.allResorts);
         });
+    },
+
+    selectedResort() {
+      
     }
   }
 };
@@ -83,5 +89,11 @@ export default {
 #gmap {
   display: flex;
   justify-content: center;
+}
+
+#drop-down {
+  color: white;
+  font-weight: bold;
+  font-size: 1.3em;
 }
 </style>

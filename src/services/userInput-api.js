@@ -20,9 +20,6 @@ export default {
       },
       body: JSON.stringify(feedback)
     })
-      .then(response => {
-        console.log('this is the response', feedback);
-        return response.json();
-      });
+      .then(response => response.json());
   }
 };

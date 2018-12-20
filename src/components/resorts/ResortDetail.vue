@@ -56,9 +56,7 @@ export default {
 
     serverApi.getResortByid(this.$route.params.id)
       .then(resort => {
-        console.log('created method fires for resort by id');
         this.resort = resort;
-        console.log(this.resort);
       });
 
   }
