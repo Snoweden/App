@@ -21,10 +21,16 @@ export default {
     };
   },
   created() {
-    feedbackApi.getComments(this.$route.params.id)
-      .then(feedback => {
-        this.feedback = feedback;
-      });
+    test();
+    function test() {
+      console.log('time testing');
+      // test();
+    }
+      feedbackApi.getComments(this.$route.params.id)
+        .then(feedback => {
+          this.feedback = feedback;
+          test();
+        });
   }
 };
 </script>
