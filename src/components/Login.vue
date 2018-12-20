@@ -54,8 +54,9 @@ export default {
   methods: {
     onSignIn() {
       serverApi.signIn(this.signIn)
-        .then(token => {
-          serverApi.setToken(token);
+        .then(profile => {
+          serverApi.setUser(profile);
+          serverApi.setToken(profile.token);
           this.$router.push('/');
         });
     },
