@@ -1,6 +1,15 @@
+import serverApi from './server-api';
+
 export default {
   getComments(id) {
-    return fetch(`/api/feedback/${id}`)
+    console.log('getcommentns', serverApi.getToken());
+    return fetch(`/api/feedback/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': serverApi.getToken()
+      }
+    })
       .then(response => response.json())
       .then(feedback => {
         let info = [];

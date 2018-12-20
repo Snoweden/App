@@ -18,7 +18,7 @@ export default {
     };
   },
   created() {
-    this.user = serverApi.getToken().username;
+    this.user = serverApi.getUser().username;
   }
 };
 </script>

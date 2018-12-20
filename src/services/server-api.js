@@ -1,4 +1,5 @@
 let token = '';
+let user = '';
 
 export default {
   setToken(t) {
@@ -7,6 +8,14 @@ export default {
 
   getToken() {
     return token;
+  },
+
+  setUser(profile) {
+    user = profile;
+  },
+
+  getUser() {
+    return user;
   },
 
   signIn(profile) {
