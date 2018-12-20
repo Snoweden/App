@@ -8,12 +8,24 @@
             class="link" to="/about">About</RouterLink>
             <RouterLink 
             class="link" to="/login">Sign Up/In</RouterLink>
+            <button @click="onLogout">Logout</button>
         </nav>
     </header>
 
 </template>
 
 <script>
+
+import serverApi from '../services/server-api';
+
+export default {
+  methods: {
+    onLogout() {
+      serverApi.setToken('');
+      this.$router.push('/');
+    }
+  }
+};
 
 </script>
 

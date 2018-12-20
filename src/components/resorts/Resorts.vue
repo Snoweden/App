@@ -23,8 +23,8 @@
                 v-for="m in markers"
                 :position="m.position"
                 :clickable="true"
-                :draggable="true"
-                @click="onMarkerClick(m.id)" />
+                :draggable="false"
+                @click="onMarkerClick(m.id)"/>
         </GmapMap>
       </div>
     </section>
