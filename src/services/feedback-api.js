@@ -2,7 +2,6 @@ import serverApi from './server-api';
 
 export default {
   getComments(id) {
-    console.log('getcommentns', serverApi.getToken());
     return fetch(`/api/feedback/${id}`, {
       method: 'GET',
       headers: {
@@ -12,7 +11,6 @@ export default {
     })
       .then(response => response.json())
       .then(feedback => {
-        console.log('api feedback', feedback);
         let info = [];
         feedback.forEach(feed => {
           let temp = {};
@@ -20,7 +18,6 @@ export default {
           temp.comment = feed.comment;
           info.push(temp);
         });
-        console.log('api info', info);
         return info;
       });
   }
