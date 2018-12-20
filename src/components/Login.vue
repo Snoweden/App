@@ -75,5 +75,12 @@ export default {
 <style>
     #login {
         color: white;
+        background: darkblue;
+        display: inline-block;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 100px;
+        /* box-shadow: 5px 5px 6px black; */
+        border: 1px solid gray;
     }
 </style>
