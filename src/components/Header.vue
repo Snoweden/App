@@ -8,12 +8,18 @@
             class="link" to="/about">About</RouterLink>
             <RouterLink 
             class="link" to="/login">Sign Up/In</RouterLink>
+            <button @click="onLogout">Logout</button>
         </nav>
     </header>
 
 </template>
 
 <script>
+export default {
+  props: {
+    onLogout: Function
+  }
+};
 
 </script>
 

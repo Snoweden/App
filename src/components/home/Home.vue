@@ -2,7 +2,7 @@
   <div>
     <h1>Welcome to Snoweden!</h1>
 
-    <h3>Hello {{user}}</h3>
+    <h3 v-if="user">Hello {{user}}</h3>
   </div>
 </template>
 
