@@ -23,7 +23,7 @@
       <br />
 
       <label>How crowded is the resort?
-        <input type="number" v-model="feedback.crowded">
+        <input type="text" v-model="feedback.crowded">
       </label>
       <br />
       <button>Submit</button>
@@ -79,6 +79,7 @@ export default {
   color: white;
   background: darkblue;
   margin: 20px;
-  box-shadow: 3px 3px 5px lightblue
+  box-shadow: 3px 3px 5px lightblue;
+  border-radius: 5px;
 }
 </style>

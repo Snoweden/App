@@ -3,11 +3,17 @@
     <section 
     v-if="resort"
     class="details">
-      {{resort.resort_name}}<br>
-      {{resort.description}}<br>
-      {{resort.address}}<br>
-      {{resort.url}}<br>
+      {{resort.resort_name}}
+      <br />
+      {{resort.description}}
+      <br />
+      {{resort.address}}
+      <br />
+      {{resort.url}}
+      <br />
     </section>
+
+    <hr />
 
     <ResortWeather
     v-if="resort"
@@ -65,5 +71,10 @@ export default {
 .details {
   display: inline-block;
   color: white;
+  background: darkblue;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px lightblue;
 }
 </style>
