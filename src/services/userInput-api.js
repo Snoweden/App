@@ -34,6 +34,22 @@ export default {
         console.log();
         return response.json();
       });
+  }, 
+
+  updateUser(user) {
+    console.log(user);
+    return fetch('/api/userinput/updateUsername', {
+      method: 'PUT', 
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'token'
+      }, 
+      body: JSON.stringify(user)
+    })
+      .then (response => {
+        console.log('put call from api');
+        return response.json();
+      });
   }
 
 };
