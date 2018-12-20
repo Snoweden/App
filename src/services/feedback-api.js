@@ -16,6 +16,7 @@ export default {
           let temp = {};
           temp.user = feed.username;
           temp.comment = feed.comment;
+          feed.profile_id === serverApi.getUser().id ? temp.userComment = true : temp.userComment = false;
           info.push(temp);
         });
         return info;

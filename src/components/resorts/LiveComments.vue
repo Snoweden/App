@@ -5,6 +5,7 @@
       <li v-for="(feed, index) in feedback"
           :key="index">
           {{feed.user}}: {{feed.comment}}
+          <button v-if="feed.userComment">Delete</button>
       </li>
     </ul>
   </section>
