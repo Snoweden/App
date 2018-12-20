@@ -8,17 +8,15 @@
       {{resort.address}}<br>
       {{resort.url}}<br>
     </section>
-    <ResortWeather />
-    <StarRating />
 
-    <br />
-    <br />
-    
-    <ResortComments />
     <ResortWeather
     v-if="resort"
     :resort="resort" />
-    <ResortWeather />
+
+    <StarRating />
+
+    <ResortComments />
+    
     <LiveComments />
   </div>
 
@@ -64,9 +62,8 @@ export default {
 </script>
 
 <style>
-.detail {
+.details {
   display: inline-block;
-  
+  color: white;
 }
-
 </style>
