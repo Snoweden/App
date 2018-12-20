@@ -1,44 +1,43 @@
 <template>
-    <section>
-        <h2>About the Developers</h2>
+    <section id="about">
+        <h2 id="aboutdev"><u>About the Developers</u></h2>
             <div class="profiles">
                 <div>
-                    <span>Shaba</span>
-                    <img src="../assets/shaba.png" id="shaba" alt="image of shaba">
+                    <span id="shaba">Shaba</span>
+                    <img src="../assets/shaba.png" alt="image of shaba">
+                    <p>THE FEARLESS</p>
                 </div>
                 <div>
-                    <span>Connor</span>
-                    <img src="../assets/connor.png" id="shaba" alt="image of connor">
+                    <span id="connor">Connor</span>
+                    <img src="../assets/connor.png" alt="image of connor">
+                    <p>THE ADVENTURER</p>
                 </div>
                 <div>
-                    <span>Lance</span>
-                    <img src="../assets/lance.png" id="shaba" alt="image of lance">
+                    <span id="lance">Lance</span>
+                    <img src="../assets/lance.png" alt="image of lance">
+                    <p>THE STRONG</p>
                 </div>
                 <div>
-                    <span>Chris</span>
-                    <img src="../assets/chris.png" id="shaba" alt="image of chris">
+                    <span id="chris">Chris</span>
+                    <img src="../assets/chris.png" alt="image of chris">
+                    <p>THE BRAVE</p>
                 </div>   
             </div> 
     </section>
-
 </template>
 
-<script>
-export default {
-
-};
-</script>
-
 <style>
-section {
-    width: 100vw;
-    height: 100vh;
+#about {
+    max-width: 100%;
+    max-height: 100%;
     background-repeat: no-repeat;
 }
-h2 {
+#aboutdev {
     text-align: center;
     font-size: 3em;
     color: white;
+    border: none;
+    
 }
 .profiles {
     display: grid;
@@ -49,14 +48,59 @@ h2 {
     padding: 5px;
 }
 img {
-    /* border-radius: 45%; */
-    width: 100%;
+    max-width: 100%;
 }
-span {
+#shaba {
     text-align: center;
-    text-emphasis: bold;
+    font-weight: bold;
     color: white;
-    display: block;
-    width: 100%;
+    display: inline-block;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+#connor {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+#lance {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+#chris {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+p {
+    max-width: 100%;
+    color: white;
 }
 </style>

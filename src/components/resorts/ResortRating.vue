@@ -1,8 +1,7 @@
 <template>
   <form @submit.prevent="submitStarRating">
-    <div @mouseleave="showCurrentRating" style="display:inline-block;">
+    <div id="starrating" @mouseleave="showCurrentRating" style="display:inline-block;">
       <StarRating @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating"></StarRating>
-      <div style="margin-top:10px;font-weight:bold;">You have selected: {{currentRating}} stars</div>
     </div>
     <br />
     <button>Submit</button>
@@ -50,5 +49,7 @@ export default {
 </script>
 
 <style>
-
+#starrating {
+  margin: 10px;
+}
 </style>
