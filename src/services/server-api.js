@@ -12,6 +12,7 @@ export default {
 
   setUser(profile) {
     user = profile;
+    console.log(user);
   },
 
   getUser() {

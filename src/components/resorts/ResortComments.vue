@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     submitComment() {
-      this.feedback.profileId = serverApi.getToken();
+      this.feedback.profileId = serverApi.getUser().id;
       this.feedback.resortId = this.$route.params.id;
       userInputApi.addComment(this.feedback);
     }

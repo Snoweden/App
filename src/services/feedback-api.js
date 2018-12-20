@@ -12,13 +12,15 @@ export default {
     })
       .then(response => response.json())
       .then(feedback => {
+        console.log('api feedback', feedback);
         let info = [];
         feedback.forEach(feed => {
           let temp = {};
-          temp.user = JSON.parse(feed.profile_id).username;
+          temp.user = feed.username;
           temp.comment = feed.comment;
           info.push(temp);
         });
+        console.log('api info', info);
         return info;
       });
   }
