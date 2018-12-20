@@ -45,7 +45,6 @@ export default {
 
     this.stats = userInputApi.getStats()
       .then(stats => {
-        console.log();
         this.stats = stats;
       });
   }, 
