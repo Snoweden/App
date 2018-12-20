@@ -1,23 +1,17 @@
 <template>
   <div id="app">
-    <Header :onLogout="handleLogout"/>
+    <Header/>
     <RouterView></RouterView>
   </div>
 </template>
 
 <script>
+
 import Header from './Header.vue';
-import serverApi from '../services/server-api';
+
 export default {
   components: {
     Header
-  },
-  methods: {
-    handleLogout() {
-      console.log('logout');
-      serverApi.setToken('');
-      this.$router.push('/');
-    }
   }
 };
 </script>

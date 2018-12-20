@@ -15,9 +15,15 @@
 </template>
 
 <script>
+
+import serverApi from '../services/server-api';
+
 export default {
-  props: {
-    onLogout: Function
+  methods: {
+    onLogout() {
+      serverApi.setToken('');
+      this.$router.push('/');
+    }
   }
 };
 
