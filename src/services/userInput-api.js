@@ -21,5 +21,19 @@ export default {
       body: JSON.stringify(feedback)
     })
       .then(response => response.json());
+  }, 
+  getStats() {
+    return fetch('/api/userinput/stats', {
+      method: 'GET', 
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+
+    })
+      .then(response => {
+        console.log();
+        return response.json();
+      });
   }
+
 };
