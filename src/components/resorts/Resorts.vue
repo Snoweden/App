@@ -2,7 +2,7 @@
     <section>
       <br />
       <label id="drop-down">Select a Resort:</label>
-      <select v-model="resorts">
+      <select v-model="selectedRes">
           <option
             v-for="resort in allResorts"
             v-bind:key="resort.id"
@@ -10,6 +10,7 @@
             {{resort.resort_name}}
           </option>
       </select>
+      <button @click="onSelect">Select Resort</button>
       <br />
       <br />
       <div id="gmap">
@@ -39,7 +40,7 @@ export default {
       center: { lat:45, lng:-122 }, 
       markers: [],
       allResorts: [],
-      selected: ''
+      selectedRes: 0
     };
   },
 
@@ -78,8 +79,8 @@ export default {
         });
     },
 
-    selectedResort() {
-      
+    onSelect() {
+      this.$router.push(`/resorts/${this.selectedRes}`);
     }
   }
 };

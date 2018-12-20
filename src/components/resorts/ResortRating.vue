@@ -42,10 +42,8 @@ export default {
     },
     submitStarRating() {
       this.feedback.profileId.id = serverApi.getToken();
-      console.log(serverApi.getToken());
       this.feedback.resortId = this.$route.params.id;
       userInputApi.addStarRating(this.feedback);
-      console.log('asdfa', this.feedback.StarRating);
     }
   }
 };

@@ -22,7 +22,9 @@ export default {
   },
   created() {
     feedbackApi.getComments(this.$route.params.id)
-      .then(feedback => this.feedback = feedback);
+      .then(feedback => {
+        this.feedback = feedback;
+      });
   }
 };
 </script>
