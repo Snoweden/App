@@ -12,10 +12,12 @@ export default {
       .then(response => response.json())
       .then(feedback => {
         let info = [];
+        console.log('feedback', feedback);
         feedback.forEach(feed => {
           let temp = {};
           temp.user = feed.username;
           temp.comment = feed.comment;
+          temp.commentId = feed.commentId;
           feed.profile_id === serverApi.getUser().id ? temp.userComment = true : temp.userComment = false;
           info.push(temp);
         });

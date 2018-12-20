@@ -5,7 +5,8 @@
       <li v-for="(feed, index) in feedback"
           :key="index">
           {{feed.user}}: {{feed.comment}}
-          <button v-if="feed.userComment">Delete</button>
+          <button v-if="feed.userComment"
+                  @click="onCommentDel(feed.commentId)">Delete</button>
       </li>
     </ul>
   </section>
@@ -26,6 +27,11 @@ export default {
       .then(feedback => {
         this.feedback = feedback;
       });
+  },
+  methods: {
+    onCommentDel(id) {
+      console.log('delete', id);
+    }
   }
 };
 </script>
