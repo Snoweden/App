@@ -1,17 +1,20 @@
+import feedbackApi from './feedback-api';
+import userInputApi from './userInput-api';
+
+
 let token = '';
 let user = '';
 
 export default {
   setToken(t) {
     token = t;
-  },
-
-  getToken() {
-    return token;
+    feedbackApi.setToken(token);
+    userInputApi.setToken(token);
   },
 
   setUser(profile) {
     user = profile;
+    feedbackApi.setUser(profile);
   },
 
   getUser() {
@@ -56,12 +59,11 @@ export default {
       });
   },
 
-  getResortByid(id) {
+  getResortById(id) {
     return fetch(`/api/map/resort/${id}`, {
       method: 'GET'
     })
       .then(response => response.json());
-
   },
 
   getMarkers() {

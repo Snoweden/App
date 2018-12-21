@@ -2,11 +2,16 @@
   <section>
     <h2>Live Comments:</h2>
     <ul>
-      <li v-for="(feed, index) in feedback"
+      <li class="comment"
+          v-for="(feed, index) in feedback"
           :key="index">
-          {{feed.user}}: {{feed.comment}}
-          <button v-if="feed.userComment"
-                  @click="onCommentDel(feed.commentId)">Delete</button>
+          <h4 class="commentuser">{{feed.user}}:</h4>
+          <p>{{feed.comment}}</p>
+          <p>
+            <button v-if="feed.userComment"
+                  @click="onCommentDel(feed.commentId)">Delete
+            </button>
+          </p>
       </li>
     </ul>
   </section>
@@ -25,7 +30,7 @@ export default {
   created() {
     feedbackApi.getComments(this.$route.params.id)
       .then(feedback => {
-        this.feedback = feedback;
+        this.feedback = feedback.filter(feed => feed.resortId === parseInt(this.$route.params.id) && feed.comment);
       });
   },
   methods: {
@@ -33,7 +38,7 @@ export default {
       feedbackApi.deleteComment(id);
       feedbackApi.getComments(this.$route.params.id)
         .then(feedback => {
-          this.feedback = feedback;
+          this.feedback = feedback.filter(feed => feed.resortId === parseInt(this.$route.params.id) && feed.comment);
         });
     }
   }
@@ -41,5 +46,13 @@ export default {
 </script>
 
 <style>
-
+.comment {
+  list-style: none;
+  border: 1px solid black;
+  padding: 0.5px;
+  margin: 0.5vh;
+}
+.commentuser {
+  color: rgb(240, 225, 88);
+}
 </style>
