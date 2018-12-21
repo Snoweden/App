@@ -18,7 +18,8 @@ export default {
   methods: {
     onLogout() {
       serverApi.setToken('');
-      this.$router.push('/');
+      serverApi.setUser('');
+      this.$router.push('/login');
     }
   }
 };

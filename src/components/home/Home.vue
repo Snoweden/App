@@ -10,8 +10,6 @@
     <p id="description">
       Displays a Google Map of all the ski resorts in Oregon.  Click on a marker to show more details about said resort.  Give it a rating, add a comment about the weather conditions, or if you don't have an account, you can just look at all the pretty resorts in Oregon.
     </p>
-    <div v-if="stats">
-
       <h4><u>Your Top 3 Picks!</u></h4>
       <table align="center">
         <tbody>
@@ -24,7 +22,6 @@
         </tbody>
       </table>
     </div>
-
   </div>
 </template>
 
@@ -37,13 +34,13 @@ export default {
     return {
       user: '',
       resort: null,
-      stats: null
+      stats: null,
     };
   },
   created() {
     this.user = serverApi.getUser().username;
 
-    this.stats = userInputApi.getStats()
+    userInputApi.getStats()
       .then(stats => {
         this.stats = stats;
       });

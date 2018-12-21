@@ -42,11 +42,13 @@
                 </p>
             </form>
         </div>
+            <UpdateProfile />
     </section>
 </template>
 
 <script>
 import serverApi from '../services/server-api';
+import UpdateProfile from './UpdateProfile';
 
 export default {
   data() {
@@ -60,21 +62,33 @@ export default {
       signUp: {}
     };
   },
+
+  components: {
+    UpdateProfile
+  },
   methods: {
     onSignIn() {
       serverApi.signIn(this.signIn)
         .then(profile => {
-          serverApi.setUser(profile);
+          let user = {
+            username: profile.username,
+            id: profile.id
+          };
+          serverApi.setUser(user);
           serverApi.setToken(profile.token);
-          this.$router.push('/');
+          this.$router.push('/resorts');
         });
     },
     onSignUp() {
       serverApi.signUp(this.signUp)
         .then(profile => {
-          serverApi.setUser(profile);
+          let user = {
+            username: profile.username,
+            id: profile.id
+          };
+          serverApi.setUser(user);
           serverApi.setToken(profile.token);
-          this.$router.push('/');
+          this.$router.push('/resorts');
         });
     }
   }

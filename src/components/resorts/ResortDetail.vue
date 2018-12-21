@@ -1,16 +1,12 @@
 <template>
-  <div v-if="token">
+  <div v-if="user">
     <section 
     v-if="resort"
     class="details">
-      {{resort.resort_name}}
-      <br />
-      {{resort.description}}
-      <br />
-      {{resort.address}}
-      <br />
-      {{resort.url}}
-      <br />
+      <p>{{resort.resort_name}}</p>
+      <p>{{resort.description}}</p>
+      <p>{{resort.address}}</p>
+      <p>{{resort.url}}</p>
     </section>
 
     <hr />
@@ -20,6 +16,10 @@
     :resort="resort" />
 
     <StarRating />
+    
+    <h4 class="rating" v-if="rating">
+      Average Rating: {{rating}}
+    </h4>
 
     <ResortComments />
     
@@ -45,9 +45,9 @@ import LiveComments from './LiveComments';
 export default {
   data() {
     return {
-      token: false,
+      user: {},
       resort: null,
-      stats: null
+      rating: 0
     };
   },
   components: {
@@ -57,11 +57,16 @@ export default {
     LiveComments
   },
   created() {
-    this.token = serverApi.getToken();
+    this.user = serverApi.getUser().username;
 
-    serverApi.getResortByid(this.$route.params.id)
+    serverApi.getResortById(this.$route.params.id)
       .then(resort => {
         this.resort = resort;
+      });
+      
+    userInputApi.getStats()
+      .then(stats => {
+        this.rating = Math.round(stats.find(stat => stat.resort_id === parseInt(this.$route.params.id)).avg);
       });
   }
 };
@@ -76,5 +81,8 @@ export default {
   margin: 10px;
   border-radius: 5px;
   box-shadow: 3px 3px 5px lightblue;
+}
+.rating {
+  color: rgb(230, 200, 36);
 }
 </style>
