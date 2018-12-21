@@ -46,13 +46,22 @@ export default {
 </script>
 
 <style>
-.comment {
-  list-style: none;
-  border: 1px solid black;
-  padding: 0.5px;
-  margin: 0.5vh;
+#live-title {
+  color: white;
 }
-.commentuser {
-  color: rgb(240, 225, 88);
+
+#live {
+  background: darkblue;
+  display: inline-block;
+  color: white;
+  list-style: none;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px lightblue;
+}
+
+#onecomment {
+  margin-bottom: 5px;
 }
 </style>

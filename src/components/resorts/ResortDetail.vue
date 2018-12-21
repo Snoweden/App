@@ -41,7 +41,6 @@ import StarRating from './ResortRating';
 import serverApi from '../../services/server-api.js';
 import ResortWeather from './ResortWeather';
 import LiveComments from './LiveComments';
-import userInputApi from '../../services/userInput-api';
 
 export default {
   data() {
@@ -64,8 +63,7 @@ export default {
       .then(resort => {
         this.resort = resort;
       });
-
-
+      
     userInputApi.getStats()
       .then(stats => {
         this.rating = Math.round(stats.find(stat => stat.resort_id === parseInt(this.$route.params.id)).avg);

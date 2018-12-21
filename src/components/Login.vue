@@ -3,12 +3,16 @@
         <div v-if="method === 'signin'">
             <form @submit.prevent="onSignIn">
                 <h3>Log In:</h3>
-                <label>Username:
-                    <input v-model="signIn.username" required>
-                </label>
-                <label>Password:
-                    <input v-model="signIn.password" type="password" required>
-                </label>
+                    <div>
+                        <label>Username:
+                            <input v-model="signIn.username" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>Password:
+                            <input v-model="signIn.password" type="password" required>
+                        </label>
+                    </div>
                 <button>Log In</button>
                 <hr />
                 <p>
@@ -21,12 +25,16 @@
         <div v-else>
             <form @submit.prevent="onSignUp">
                 <h3>Sign Up:</h3>
-                <label>Username:
-                    <input v-model="signUp.username" required>
-                </label>
-                <label>Password:
-                    <input v-model="signUp.password" type="password" required>
-                </label>
+                    <div>
+                        <label>Username:
+                            <input v-model="signUp.username" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>Password:
+                            <input v-model="signUp.password" type="password" required>
+                        </label>
+                    </div>
                 <button>Sign Up</button>
                 <p>
                     Already have an account?
