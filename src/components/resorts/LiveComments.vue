@@ -2,7 +2,8 @@
   <section>
     <h2>Live Comments:</h2>
     <ul>
-      <li class="comment" v-for="(feed, index) in feedback"
+      <li class="comment"
+          v-for="(feed, index) in feedback"
           :key="index">
           <h4 class="commentuser">{{feed.user}}:</h4>
           <p>{{feed.comment}}</p>
@@ -37,6 +38,7 @@ export default {
       feedbackApi.deleteComment(id);
       feedbackApi.getComments(this.$route.params.id)
         .then(feedback => {
+          console.log('feedback', feedback);
           this.feedback = feedback;
         });
     }
@@ -49,6 +51,7 @@ export default {
   list-style: none;
   border: 1px solid black;
   padding: 0.5px;
+  margin: 0.5vh;
 }
 .commentuser {
   color: rgb(240, 225, 88);

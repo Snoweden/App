@@ -17,7 +17,7 @@
         <tr v-for="stat in stats"
           :key="stat.resortId">
           <td>{{stat.resort_name}}</td>
-          <td>{{stat.avg}}/5</td>
+          <td>{{Math.round(stat.avg)}}/5</td>
           <td></td>
         </tr>
       </tbody>
