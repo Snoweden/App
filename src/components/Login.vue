@@ -38,11 +38,13 @@
                 </p>
             </form>
         </div>
+            <UpdateProfile />
     </section>
 </template>
 
 <script>
 import serverApi from '../services/server-api';
+import UpdateProfile from './UpdateProfile';
 
 export default {
   data() {
@@ -55,6 +57,10 @@ export default {
       signIn: {},
       signUp: {}
     };
+  },
+
+  components: {
+    UpdateProfile
   },
   methods: {
     onSignIn() {
