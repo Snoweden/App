@@ -23,5 +23,16 @@ export default {
         });
         return info;
       });
+  },
+
+  deleteComment(id) {
+    console.log('delete', id);
+    fetch(`/api/feedback/delete/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': serverApi.getToken()
+      }
+    });
   }
 };

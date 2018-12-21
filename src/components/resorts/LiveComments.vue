@@ -31,7 +31,12 @@ export default {
   },
   methods: {
     onCommentDel(id) {
-      console.log('delete', id);
+      feedbackApi.deleteComment(id);
+      feedbackApi.getComments(this.$route.params.id)
+        .then(feedback => {
+          console.log('live', feedback);
+          this.feedback = feedback;
+        });
     }
   }
 };
