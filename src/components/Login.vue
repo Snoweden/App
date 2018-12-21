@@ -72,7 +72,7 @@ export default {
           };
           serverApi.setUser(user);
           serverApi.setToken(profile.token);
-          this.$router.push('/');
+          this.$router.push('/resorts');
         });
     },
     onSignUp() {
@@ -84,7 +84,7 @@ export default {
           };
           serverApi.setUser(user);
           serverApi.setToken(profile.token);
-          this.$router.push('/');
+          this.$router.push('/resorts');
         });
     }
   }
