@@ -1,5 +1,5 @@
 <template>
-  <div v-if="token">
+  <div v-if="user">
     <section 
     v-if="resort"
     class="details">
@@ -50,7 +50,7 @@ import userInputApi from '../../services/userInput-api';
 export default {
   data() {
     return {
-      token: false,
+      user: {},
       resort: null,
       rating: 0
     };
@@ -62,14 +62,14 @@ export default {
     LiveComments
   },
   created() {
-    this.token = serverApi.getToken();
+    this.user = serverApi.getUser().username;
+    console.log('user', this.user);
 
     serverApi.getResortByid(this.$route.params.id)
       .then(resort => {
         this.resort = resort;
       });
 
-    this.user = serverApi.getUser().username;
 
     userInputApi.getStats()
       .then(stats => {

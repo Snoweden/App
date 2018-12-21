@@ -1,13 +1,16 @@
-import serverApi from './server-api.js';
 
+let token = '';
 
 export default {
+  setToken(t) {
+    token = t;
+  },
   addComment(feedback) {
     return fetch('/api/userinput/feedback', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': serverApi.getToken()
+        'Authorization': token
       },
       body: JSON.stringify(feedback)
     })
@@ -21,7 +24,7 @@ export default {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': serverApi.getToken()
+        'Authorization': token
       },
       body: JSON.stringify(feedback)
     })
@@ -32,7 +35,7 @@ export default {
       method: 'GET', 
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': serverApi.getToken()
+        'Authorization': token
       }, 
 
     })
@@ -46,7 +49,7 @@ export default {
       method: 'PUT', 
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': serverApi.getToken()
+        'Authorization': token
       }, 
       body: JSON.stringify(newUser)
     })

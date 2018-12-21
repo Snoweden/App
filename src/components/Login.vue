@@ -66,7 +66,11 @@ export default {
     onSignIn() {
       serverApi.signIn(this.signIn)
         .then(profile => {
-          serverApi.setUser(profile);
+          let user = {
+            username: profile.username,
+            id: profile.id
+          };
+          serverApi.setUser(user);
           serverApi.setToken(profile.token);
           this.$router.push('/');
         });
@@ -74,7 +78,11 @@ export default {
     onSignUp() {
       serverApi.signUp(this.signUp)
         .then(profile => {
-          serverApi.setUser(profile);
+          let user = {
+            username: profile.username,
+            id: profile.id
+          };
+          serverApi.setUser(user);
           serverApi.setToken(profile.token);
           this.$router.push('/');
         });
