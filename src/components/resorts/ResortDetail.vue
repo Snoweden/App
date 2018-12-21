@@ -73,8 +73,7 @@ export default {
 
     userInputApi.getStats()
       .then(stats => {
-        let stat = stats.find(stat => stat.resort_id === parseInt(this.$route.params.id));
-        this.rating = Math.round(stat.avg);
+        this.rating = Math.round(stats.find(stat => stat.resort_id === parseInt(this.$route.params.id)).avg);
       });
   }
 };

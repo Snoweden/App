@@ -17,6 +17,7 @@ export default {
           temp.user = feed.username;
           temp.comment = feed.comment;
           temp.commentId = feed.commentId;
+          temp.resortId = feed.resortId;
           feed.profile_id === serverApi.getUser().id ? temp.userComment = true : temp.userComment = false;
           info.push(temp);
         });
