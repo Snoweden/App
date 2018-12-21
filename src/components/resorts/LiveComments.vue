@@ -1,9 +1,9 @@
 <template>
   <section>
-    <h2>Live Comments:</h2>
-    <ul>
+    <h2 id="live-title">Live Comments:</h2>
+    <ul id="live">
       <li v-for="(feed, index) in feedback"
-          :key="index">
+          :key="index" id="onecomment">
           {{feed.user}}: {{feed.comment}}
           <button v-if="feed.userComment"
                   @click="onCommentDel(feed.commentId)">Delete</button>
@@ -41,5 +41,22 @@ export default {
 </script>
 
 <style>
+#live-title {
+  color: white;
+}
 
+#live {
+  background: darkblue;
+  display: inline-block;
+  color: white;
+  list-style: none;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px lightblue;
+}
+
+#onecomment {
+  margin-bottom: 5px;
+}
 </style>

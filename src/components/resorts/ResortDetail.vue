@@ -20,12 +20,6 @@
     :resort="resort" />
 
     <StarRating />
-    
-    <div v-for="stat in stats"
-      :key="stat.resortId">
-      <div>{{stat.resort_name}}</div>
-      <div>{{stat.avg}}/5</div>
-    </div>
 
     <ResortComments />
     
@@ -47,7 +41,6 @@ import StarRating from './ResortRating';
 import serverApi from '../../services/server-api.js';
 import ResortWeather from './ResortWeather';
 import LiveComments from './LiveComments';
-import userInputApi from '../../services/userInput-api';
 
 export default {
   data() {
@@ -69,13 +62,6 @@ export default {
     serverApi.getResortByid(this.$route.params.id)
       .then(resort => {
         this.resort = resort;
-      });
-
-    this.user = serverApi.getUser().username;
-
-    this.stats = userInputApi.getStats()
-      .then(stats => {
-        this.stats = stats;
       });
   }
 };
