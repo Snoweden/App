@@ -20,7 +20,7 @@
     :resort="resort" />
 
     <StarRating />
-
+    
     <ResortComments />
     
     <LiveComments />
