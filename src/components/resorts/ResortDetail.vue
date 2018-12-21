@@ -41,6 +41,7 @@ import StarRating from './ResortRating';
 import serverApi from '../../services/server-api.js';
 import ResortWeather from './ResortWeather';
 import LiveComments from './LiveComments';
+import userInputApi from '../../services/userInput-api';
 
 export default {
   data() {

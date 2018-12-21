@@ -1,10 +1,10 @@
 <template>
   <section>
-    <h2>Live Comments:</h2>
-    <ul>
+    <h2 id="live-title">Live Comments:</h2>
+    <ul id="live">
       <li class="comment"
           v-for="(feed, index) in feedback"
-          :key="index">
+          :key="index" id="onecomment">
           <h4 class="commentuser">{{feed.user}}:</h4>
           <p>{{feed.comment}}</p>
           <p>

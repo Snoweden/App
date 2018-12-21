@@ -10,7 +10,9 @@
     <p id="description">
       Displays a Google Map of all the ski resorts in Oregon.  Click on a marker to show more details about said resort.  Give it a rating, add a comment about the weather conditions, or if you don't have an account, you can just look at all the pretty resorts in Oregon.
     </p>
-      <h4><u>Your Top 3 Picks!</u></h4>
+    <img class="homeimg" src="../../assets/willamette_pass_lodge.jpg">
+    <div v-if="user">
+      <h4><u>Resort Ratings!</u></h4>
       <table align="center">
         <tbody>
           <tr v-for="stat in stats"
