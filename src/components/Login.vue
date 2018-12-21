@@ -12,6 +12,7 @@
                 </label>
                 <br />
                 <button>Log In</button>
+                <hr />
                 <p>
                     Need to register?
                     <button @click="method = 'signup'">Sign Up</button>
@@ -72,21 +73,25 @@ export default {
     },
     onSignUp() {
       serverApi.signUp(this.signUp)
-        .then(token => serverApi.setToken(token));
+        .then(profile => {
+          serverApi.setUser(profile);
+          serverApi.setToken(profile.token);
+          this.$router.push('/');
+        });
     }
   }
 };
 </script>
 
 <style>
-    #login {
-        color: white;
-        background: darkblue;
-        display: inline-block;
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 100px;
-        /* box-shadow: 5px 5px 6px black; */
-        border: 1px solid gray;
-    }
+#login {
+    color: white;
+    background: darkblue;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 100px;
+    box-shadow: 5px 5px 6px black;
+    border: 1px solid gray;
+}
 </style>

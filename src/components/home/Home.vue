@@ -5,10 +5,10 @@
     <h1>Welcome to
     <br />
     <br />
-    <span>SNOWEDEN</span></h1>
+    <span id="snoweden">SNOWEDEN</span></h1>
     <hr />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita inventore minus at repellat animi voluptas amet? Ipsa cumque fugiat magnam illo error nihil dolorem, ea minus laborum molestiae accusamus adipisci?
+    <p id="description">
+      Displays a Google Map of all the ski resorts in Oregon.  Click on a marker to show more details about said resort.  Give it a rating, add a comment about the weather conditions, or if you don't have an account, you can just look at all the pretty resorts in Oregon.
     </p>
     <div v-if="stats">
 
@@ -45,7 +45,6 @@ export default {
 
     this.stats = userInputApi.getStats()
       .then(stats => {
-        console.log();
         this.stats = stats;
       });
   }, 
@@ -61,11 +60,11 @@ body {
   color: white;
 }
 
-span {
+#snoweden {
   border: 5px outset gray;
 }
 
-p {
+#description {
   max-width: 50%;
   margin: 0 auto;
   text-align: center;

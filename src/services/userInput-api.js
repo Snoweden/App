@@ -1,9 +1,14 @@
+import serverApi from './server-api.js';
+
+
 export default {
   addComment(feedback) {
+    console.log(feedback);
     return fetch('/api/userinput/feedback', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': serverApi.getToken()
       },
       body: JSON.stringify(feedback)
     })
@@ -13,10 +18,12 @@ export default {
   },
 
   addStarRating(feedback) {
-    return fetch('/api/userinput/feedback', {
+    console.log('api call', feedback);
+    return fetch('/api/userinput/star', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': serverApi.getToken()
       },
       body: JSON.stringify(feedback)
     })
@@ -26,25 +33,25 @@ export default {
     return fetch('/api/userinput/stats', {
       method: 'GET', 
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': serverApi.getToken()
       }, 
 
     })
       .then(response => {
-        console.log();
         return response.json();
       });
   }, 
 
-  updateUser(user) {
-    console.log(user);
-    return fetch('/api/userinput/updateUsername', {
+  updateUser(newUser) {
+    console.log('something', newUser);
+    return fetch('/api/userinput/update-user', {
       method: 'PUT', 
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'token'
+        'Authorization': serverApi.getToken()
       }, 
-      body: JSON.stringify(user)
+      body: JSON.stringify(newUser)
     })
       .then (response => {
         console.log('put call from api');

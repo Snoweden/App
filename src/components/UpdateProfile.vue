@@ -21,22 +21,19 @@ import ServerApi from '../services/server-api';
 export default {
   data() {
     return {
-      profileToUpdate: {
-        username: this.profile.username || '',
-        hash: this.profile.hash || ''
-      }
+      profileToUpdate: {}
     };
   }, 
-
-  created() {
-    this.profileToUpdate = ServerApi.getUser();
-    console.log('Something', this.profileToUpdate);
-  },
 
   methods: {
     handleSubmit() {
       console.log('method from update fires', this.profileToUpdate);
-      UserInputApi.updateUser(this.profileToUpdate);
+      this.profileToUpdate.id = ServerApi.getUser().id;
+      UserInputApi.updateUser(this.profileToUpdate)
+        .then(user => {
+          ServerApi.setUser(user);
+          ServerApi.setToken(user.token);
+        });
 
     }
   }

@@ -2,7 +2,7 @@
   <section>
     <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
     <div id="headers">
-      <h2>SNOWEDEN</h2>
+      <h2 id="appheader">SNOWEDEN</h2>
       <h3 id="fdsa" v-if="user">Welcome, {{user}}</h3>
     </div>
     <div id="app">
@@ -45,7 +45,7 @@ export default {
   justify-content: space-between;
 }
 
-h2 {
+#appheader {
   font-family: 'Play', sans-serif;
   font-size: 50px;
   margin-top: 0;

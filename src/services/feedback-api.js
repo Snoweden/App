@@ -12,13 +12,27 @@ export default {
       .then(response => response.json())
       .then(feedback => {
         let info = [];
+        console.log('feedback', feedback);
         feedback.forEach(feed => {
           let temp = {};
           temp.user = feed.username;
           temp.comment = feed.comment;
+          temp.commentId = feed.commentId;
+          feed.profile_id === serverApi.getUser().id ? temp.userComment = true : temp.userComment = false;
           info.push(temp);
         });
         return info;
       });
+  },
+
+  deleteComment(id) {
+    console.log('delete', id);
+    fetch(`/api/feedback/delete/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': serverApi.getToken()
+      }
+    });
   }
 };

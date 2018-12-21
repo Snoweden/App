@@ -3,22 +3,26 @@
     <section 
     v-if="resort"
     class="details">
-      {{resort.resort_name}}<br>
-      {{resort.description}}<br>
-      {{resort.address}}<br>
-      {{resort.url}}<br>
+      {{resort.resort_name}}
+      <br />
+      {{resort.description}}
+      <br />
+      {{resort.address}}
+      <br />
+      {{resort.url}}
+      <br />
     </section>
-    <ResortWeather />
-    <StarRating />
 
-    <br />
-    <br />
-    
-    <ResortComments />
+    <hr />
+
     <ResortWeather
     v-if="resort"
     :resort="resort" />
-    <ResortWeather />
+
+    <StarRating />
+    
+    <ResortComments />
+    
     <LiveComments />
   </div>
 
@@ -64,9 +68,13 @@ export default {
 </script>
 
 <style>
-.detail {
+.details {
   display: inline-block;
-  
+  color: white;
+  background: darkblue;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px lightblue;
 }
-
 </style>
