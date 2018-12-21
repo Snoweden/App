@@ -63,7 +63,6 @@ export default {
   },
   created() {
     this.user = serverApi.getUser().username;
-    console.log('user', this.user);
 
     serverApi.getResortByid(this.$route.params.id)
       .then(resort => {
