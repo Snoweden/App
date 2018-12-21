@@ -1,9 +1,7 @@
 <template>
-  <form id="starrating" @submit.prevent="submitStarRating">
     <div @mouseleave="showCurrentRating" style="display:inline-block;">
       <StarRating v-model="rating.star" @click.native="onRated"></StarRating>
     </div>
-  </form>
 </template>
 
 <script>
@@ -16,13 +14,6 @@ export default {
     return {
       rating: {},
       currentRating: '',
-      currentSelectedRating: 0,
-      boundRating: 3,
-      feedback: {
-        StarRating: null,
-        profileId: '',
-        resortId: ''
-      }
     };
   },
   components: {
@@ -36,16 +27,6 @@ export default {
     },
     showCurrentRating: function() {
       this.currentRating = this.rating;
-      this.feedback.StarRating = this.rating;
-    },
-    setCurrentSelectedRating: function(rating) {
-      this.currentSelectedRating = rating;
-      this.feedback.StarRating = rating;
-    },
-    submitStarRating() {
-      this.feedback.profileId.id = serverApi.getToken();
-      this.feedback.resortId = this.$route.params.id;
-      userInputApi.addStarRating(this.feedback);
     }
   }
 };

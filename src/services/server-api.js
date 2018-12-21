@@ -1,9 +1,13 @@
+import feedbackApi from './feedback-api';
+
+
 let token = '';
 let user = '';
 
 export default {
   setToken(t) {
     token = t;
+    feedbackApi.setToken(token);
   },
 
   getToken() {
@@ -12,6 +16,7 @@ export default {
 
   setUser(profile) {
     user = profile;
+    feedbackApi.setUser(profile);
   },
 
   getUser() {

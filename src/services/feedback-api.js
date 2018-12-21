@@ -1,12 +1,20 @@
-import serverApi from './server-api';
+
+let token = '';
+let user = '';
 
 export default {
+  setToken(t) {
+    token = t;
+  },
+  setUser(profile) {
+    user = profile;
+  },
   getComments(id) {
     return fetch(`/api/feedback/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': serverApi.getToken()
+        'Authorization': token
       }
     })
       .then(response => response.json())
@@ -18,7 +26,7 @@ export default {
           temp.comment = feed.comment;
           temp.commentId = feed.commentId;
           temp.resortId = feed.resortId;
-          feed.profile_id === serverApi.getUser().id ? temp.userComment = true : temp.userComment = false;
+          feed.profile_id === user.id ? temp.userComment = true : temp.userComment = false;
           info.push(temp);
         });
         return info;
@@ -30,7 +38,7 @@ export default {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': serverApi.getToken()
+        'Authorization': token
       }
     });
   }
