@@ -38,7 +38,7 @@ export default {
       feedbackApi.deleteComment(id);
       feedbackApi.getComments(this.$route.params.id)
         .then(feedback => {
-          this.feedback = feedback;
+          this.feedback = feedback.filter(feed => feed.resortId === parseInt(this.$route.params.id) && feed.comment);
         });
     }
   }
