@@ -21,11 +21,9 @@
 
     <StarRating />
     
-    <div v-for="stat in stats"
-      :key="stat.resortId">
-      <div>{{stat.resort_name}}</div>
-      <div>{{stat.avg}}/5</div>
-    </div>
+    <h4 class="rating" v-if="rating">
+      Average Rating: {{rating}}
+    </h4>
 
     <ResortComments />
     
@@ -54,7 +52,7 @@ export default {
     return {
       token: false,
       resort: null,
-      stats: null
+      rating: 0
     };
   },
   components: {
@@ -73,9 +71,10 @@ export default {
 
     this.user = serverApi.getUser().username;
 
-    this.stats = userInputApi.getStats()
+    userInputApi.getStats()
       .then(stats => {
-        this.stats = stats;
+        let stat = stats.find(stat => stat.resort_id === parseInt(this.$route.params.id));
+        this.rating = Math.round(stat.avg);
       });
   }
 };
@@ -90,5 +89,8 @@ export default {
   margin: 10px;
   border-radius: 5px;
   box-shadow: 3px 3px 5px lightblue;
+}
+.rating {
+  color: rgb(230, 200, 36);
 }
 </style>
