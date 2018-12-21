@@ -3,7 +3,6 @@
     <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
     <div id="headers">
       <h2 id="appheader">SNOWEDEN</h2>
-      <h3 id="fdsa" v-if="user">Welcome, {{user}}</h3>
     </div>
     <div id="app">
       <Header/>
@@ -55,10 +54,4 @@ export default {
   border-bottom: 5px outset white;;
   border-right: 5px outset white;
 }
-
-#fdsa {
-  background: red;
-}
-
-
 </style>
