@@ -3,7 +3,6 @@ import serverApi from './server-api.js';
 
 export default {
   addComment(feedback) {
-    console.log(feedback);
     return fetch('/api/userinput/feedback', {
       method: 'POST',
       headers: {
@@ -18,7 +17,6 @@ export default {
   },
 
   addStarRating(feedback) {
-    console.log('api call', feedback);
     return fetch('/api/userinput/star', {
       method: 'POST',
       headers: {
@@ -44,7 +42,6 @@ export default {
   }, 
 
   updateUser(newUser) {
-    console.log('something', newUser);
     return fetch('/api/userinput/update-user', {
       method: 'PUT', 
       headers: {
@@ -54,7 +51,6 @@ export default {
       body: JSON.stringify(newUser)
     })
       .then (response => {
-        console.log('put call from api');
         return response.json();
       });
   }

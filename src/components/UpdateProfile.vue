@@ -27,7 +27,6 @@ export default {
 
   methods: {
     handleSubmit() {
-      console.log('method from update fires', this.profileToUpdate);
       this.profileToUpdate.id = ServerApi.getUser().id;
       UserInputApi.updateUser(this.profileToUpdate)
         .then(user => {

@@ -12,7 +12,6 @@ export default {
       .then(response => response.json())
       .then(feedback => {
         let info = [];
-        console.log('feedback', feedback);
         feedback.forEach(feed => {
           let temp = {};
           temp.user = feed.username;
@@ -26,7 +25,6 @@ export default {
   },
 
   deleteComment(id) {
-    console.log('delete', id);
     fetch(`/api/feedback/delete/${id}`, {
       method: 'DELETE',
       headers: {

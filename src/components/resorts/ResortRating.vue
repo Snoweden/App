@@ -32,7 +32,6 @@ export default {
     onRated: function() {
       this.rating.resortId = this.$route.params.id;
       this.rating.profileId = serverApi.getUser().id;
-      console.log(this.rating);
       userInputApi.addStarRating(this.rating);
     },
     showCurrentRating: function() {
