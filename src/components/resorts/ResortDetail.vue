@@ -3,14 +3,10 @@
     <section 
     v-if="resort"
     class="details">
-      {{resort.resort_name}}
-      <br />
-      {{resort.description}}
-      <br />
-      {{resort.address}}
-      <br />
-      {{resort.url}}
-      <br />
+      <p>{{resort.resort_name}}</p>
+      <p>{{resort.description}}</p>
+      <p>{{resort.address}}</p>
+      <p>{{resort.url}}</p>
     </section>
 
     <hr />

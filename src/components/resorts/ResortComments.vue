@@ -5,8 +5,6 @@
         <input type="number" v-model="feedback.ticketPrice">
       </label>
 
-      <br />
-      <br />
 
       <label>Who Are You?
         <select v-model="feedback.who">
@@ -19,18 +17,13 @@
         </select>
       </label>
 
-      <br />
-      <br />
 
       <label>How crowded is the resort?
         <input type="text" v-model="feedback.crowded">
       </label>
-      <br />
       <button>Submit</button>
-      <br />
 
     </form>
-    <br />
     <form @submit.prevent="submitComment" id="comment">
       <label>Comment:
         <textarea v-model="feedback.comment" rows="4" cols="50" name="comment" placeholder="Enter comment..."></textarea>
