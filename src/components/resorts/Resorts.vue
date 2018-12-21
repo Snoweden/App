@@ -1,7 +1,8 @@
 <template>
     <section>
-      <br />
-      <label id="drop-down">Select a Resort:</label>
+      <div>
+        <label id="drop-down">Select a Resort:</label>
+      </div>
       <select v-model="selectedRes">
           <option
             v-for="resort in allResorts"

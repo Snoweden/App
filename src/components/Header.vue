@@ -18,7 +18,8 @@ export default {
   methods: {
     onLogout() {
       serverApi.setToken('');
-      this.$router.push('/');
+      serverApi.setUser('');
+      this.$router.push('/login');
     }
   }
 };
@@ -37,11 +38,12 @@ nav {
     font-size: 25px;
     background: rgb(224, 225, 226);
     padding: 0px;
+    border-radius: 5px;
 }
 
 .link {
     margin: 5px;
-    padding: 5px;
+    padding: 5px 0;
     border: 2px solid black;
     border-radius: 5px;
     color: black;

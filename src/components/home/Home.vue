@@ -12,8 +12,8 @@
     </p>
     <div v-if="stats">
     <img class="homeimg" src="../../assets/willamette_pass_lodge.jpg">
-      <H4>Your Top 3 Picks!</H4>
-      <table>
+      <h4><u>Your Top 3 Picks!</u></h4>
+      <table align="center">
         <tbody>
           <tr v-for="stat in stats"
             :key="stat.resortId">
@@ -24,7 +24,6 @@
         </tbody>
       </table>
     </div>
-
   </div>
 </template>
 
@@ -37,13 +36,13 @@ export default {
     return {
       user: '',
       resort: null,
-      stats: null
+      stats: null,
     };
   },
   created() {
     this.user = serverApi.getUser().username;
 
-    this.stats = userInputApi.getStats()
+    userInputApi.getStats()
       .then(stats => {
         this.stats = stats;
       });
@@ -70,9 +69,12 @@ body {
   max-width: 50%;
   margin: 0 auto;
   text-align: center;
+  border: 2px solid black;
 }
 
 h3 {
   font-size: 2em;
 }
+
+
 </style>

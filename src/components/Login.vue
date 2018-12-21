@@ -3,14 +3,16 @@
         <div v-if="method === 'signin'">
             <form @submit.prevent="onSignIn">
                 <h3>Log In:</h3>
-                <label>Username:
-                    <input v-model="signIn.username" required>
-                </label>
-                <br />
-                <label>Password:
-                    <input v-model="signIn.password" type="password" required>
-                </label>
-                <br />
+                    <div>
+                        <label>Username:
+                            <input v-model="signIn.username" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>Password:
+                            <input v-model="signIn.password" type="password" required>
+                        </label>
+                    </div>
                 <button>Log In</button>
                 <hr />
                 <p>
@@ -23,14 +25,16 @@
         <div v-else>
             <form @submit.prevent="onSignUp">
                 <h3>Sign Up:</h3>
-                <label>Username:
-                    <input v-model="signUp.username" required>
-                </label>
-                <br />
-                <label>Password:
-                    <input v-model="signUp.password" type="password" required>
-                </label>
-                <br />
+                    <div>
+                        <label>Username:
+                            <input v-model="signUp.username" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>Password:
+                            <input v-model="signUp.password" type="password" required>
+                        </label>
+                    </div>
                 <button>Sign Up</button>
                 <p>
                     Already have an account?
@@ -66,17 +70,25 @@ export default {
     onSignIn() {
       serverApi.signIn(this.signIn)
         .then(profile => {
-          serverApi.setUser(profile);
+          let user = {
+            username: profile.username,
+            id: profile.id
+          };
+          serverApi.setUser(user);
           serverApi.setToken(profile.token);
-          this.$router.push('/');
+          this.$router.push('/resorts');
         });
     },
     onSignUp() {
       serverApi.signUp(this.signUp)
         .then(profile => {
-          serverApi.setUser(profile);
+          let user = {
+            username: profile.username,
+            id: profile.id
+          };
+          serverApi.setUser(user);
           serverApi.setToken(profile.token);
-          this.$router.push('/');
+          this.$router.push('/resorts');
         });
     }
   }

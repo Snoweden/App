@@ -14,7 +14,7 @@
           Temperature
         </td>
         <td>
-          {{ weather.main.temp }}
+          {{weather.main.temp}}
         </td>
       </tr>
       <tr>
@@ -22,7 +22,7 @@
           Humidity
         </td>
         <td >
-          {{ weather.main.humidity }}
+          {{weather.main.humidity}}
         </td>
       </tr>
       <tr>
@@ -30,7 +30,7 @@
           Wind Speed
         </td>
         <td>
-          {{ weather.wind.speed }}
+          {{weather.wind.speed}}
         </td>
       </tr>
         <tr>
@@ -38,7 +38,7 @@
           Cloud Cover
         </td>
         <td>
-          {{ weather.clouds.all }}
+          {{weather.clouds.all}}
         </td>
       </tr>
         <tr>
@@ -46,7 +46,7 @@
           General Weather
         </td>
         <td>
-          {{ weather.weather[0].description }}
+          {{weather.weather[0].description}}
         </td>
       </tr>
     </table>
