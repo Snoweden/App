@@ -60,7 +60,7 @@ export default {
   created() {
     this.user = serverApi.getUser().username;
 
-    serverApi.getResortByid(this.$route.params.id)
+    serverApi.getResortById(this.$route.params.id)
       .then(resort => {
         this.resort = resort;
       });

@@ -1,10 +1,10 @@
-
 let token = '';
 
 export default {
   setToken(t) {
     token = t;
   },
+
   addComment(feedback) {
     return fetch('/api/userinput/feedback', {
       method: 'POST',
@@ -30,14 +30,14 @@ export default {
     })
       .then(response => response.json());
   }, 
+
   getStats() {
     return fetch('/api/userinput/stats', {
       method: 'GET', 
       headers: {
         'Content-Type': 'application/json',
         'Authorization': token
-      }, 
-
+      } 
     })
       .then(response => {
         return response.json();
@@ -57,5 +57,4 @@ export default {
         return response.json();
       });
   }
-
 };

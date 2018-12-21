@@ -59,12 +59,11 @@ export default {
       });
   },
 
-  getResortByid(id) {
+  getResortById(id) {
     return fetch(`/api/map/resort/${id}`, {
       method: 'GET'
     })
       .then(response => response.json());
-
   },
 
   getMarkers() {
