@@ -1,42 +1,42 @@
 <template>
   <div>
     <form @submit.prevent="submitComment" id="user-questions">
-      <label>Adult All-Day Ticket Price:
-        <input type="number" v-model="feedback.ticketPrice">
-      </label>
+      <div class="user-input">
+        <label>Adult All-Day Ticket Price:
+          <input type="number" v-model="feedback.ticketPrice">
+        </label>
+      </div>
 
-      <br />
-      <br />
-
-      <label>Who Are You?
-        <select v-model="feedback.who">
-          <option disabled value="">Please select one</option>
-          <option value="skier">Skier</option>
-          <option value="snowboarder">Snowboarder</option>
-          <option value="cocoa">Cocoa Drinker</option>
-          <option value="sledder">Sledder</option>
-          <option value="md">Mischievous Deliquent</option>
-        </select>
-      </label>
-
-      <br />
-      <br />
+      <div class="user-input">
+        <label>Who Are You?
+          <select v-model="feedback.who">
+            <option disabled value="">Please select one</option>
+            <option value="skier">Skier</option>
+            <option value="snowboarder">Snowboarder</option>
+            <option value="cocoa">Cocoa Drinker</option>
+            <option value="sledder">Sledder</option>
+            <option value="md">Mischievous Deliquent</option>
+          </select>
+        </label>
+      </div>
 
       <label>How crowded is the resort?
         <input type="text" v-model="feedback.crowded">
       </label>
-      <br />
-      <button>Submit</button>
-      <br />
+      
+      <div>
+        <button>Submit</button>
+      </div>
 
     </form>
-    <br />
-    <form @submit.prevent="submitComment" id="comment">
-      <label>Comment:
-        <textarea v-model="feedback.comment" rows="4" cols="50" name="comment" placeholder="Enter comment..."></textarea>
-      </label>
-      <button>Submit</button>
-    </form>
+    <div>
+      <form @submit.prevent="submitComment" id="comment">
+        <label>Comment:
+          <textarea v-model="feedback.comment" rows="4" cols="50" name="comment" placeholder="Enter comment..."></textarea>
+        </label>
+        <button>Submit</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -81,5 +81,9 @@ export default {
   margin: 20px;
   box-shadow: 3px 3px 5px lightblue;
   border-radius: 5px;
+}
+
+.user-input {
+  margin: 10px;
 }
 </style>
