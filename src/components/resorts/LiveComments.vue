@@ -25,13 +25,16 @@ export default {
   created() {
     feedbackApi.getComments(this.$route.params.id)
       .then(feedback => {
-        console.log('live', feedback);
         this.feedback = feedback;
       });
   },
   methods: {
     onCommentDel(id) {
-      console.log('delete', id);
+      feedbackApi.deleteComment(id);
+      feedbackApi.getComments(this.$route.params.id)
+        .then(feedback => {
+          this.feedback = feedback;
+        });
     }
   }
 };
