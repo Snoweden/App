@@ -1,5 +1,6 @@
 export default {
   addComment(feedback) {
+    console.log(feedback);
     return fetch('/api/userinput/feedback', {
       method: 'POST',
       headers: {
@@ -13,7 +14,8 @@ export default {
   },
 
   addStarRating(feedback) {
-    return fetch('/api/userinput/feedback', {
+    console.log('api call', feedback);
+    return fetch('/api/userinput/star', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
