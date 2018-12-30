@@ -1,19 +1,17 @@
 <template>
   <div v-if="user">
-    <section 
-    v-if="resort"
-    class="details">
+    <section v-if="resort" class="details">
       <p>{{resort.resort_name}}</p>
       <p>{{resort.description}}</p>
       <p>{{resort.address}}</p>
       <p>{{resort.url}}</p>
     </section>
 
-    <hr />
+    <!-- <hr /> -->
 
     <ResortWeather
-    v-if="resort"
-    :resort="resort" />
+      v-if="resort"
+      :resort="resort" />
 
     <StarRating />
     
@@ -31,7 +29,6 @@
     <RouterLink to="/login">
       <button>Sign In</button>
     </RouterLink>
-
   </div>
 </template>
 

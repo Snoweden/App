@@ -51,6 +51,8 @@ export default {
     };
   },
   methods: {
+    // both forms use the same API call?
+    // that doesn't make sense
     submitComment() {
       this.feedback.profileId = serverApi.getUser().id;
       this.feedback.resortId = this.$route.params.id;

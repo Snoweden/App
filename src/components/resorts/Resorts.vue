@@ -1,8 +1,8 @@
 <template>
     <section>
-      <div>
-        <label id="drop-down">Select a Resort:</label>
-      </div>
+      <!-- "drop-down" is the best id you could come up with?" -->
+      <!-- it's not even a drop-down, it's the label for a drop-down -->
+      <label id="drop-down">Select a Resort:</label>
       <select v-model="selectedRes">
           <option
             v-for="resort in allResorts"
@@ -12,8 +12,8 @@
           </option>
       </select>
       <button @click="onSelect">Select Resort</button>
-      <br />
-      <br />
+      <!-- <br />
+      <br /> -->
       <div id="gmap">
         <GmapMap
             :center="center"
@@ -52,14 +52,26 @@ export default {
   created() {
     api.getMarkers()
       .then(markers => {
-        let markerList = [];
-        markers.forEach(marker => {
-          let temp = {};
-          temp.id = marker.id;
-          temp.position = { lat: marker.coordinate_lat, lng: marker.coordinate_lon };
-          markerList.push(temp);
+        // And here is another map...
+        //
+        // let markerList = [];
+        // markers.forEach(marker => {
+        //   let temp = {};
+        //   temp.id = marker.id;
+        //   temp.position = { lat: marker.coordinate_lat, lng: marker.coordinate_lon };
+        //   markerList.push(temp);
+        // });
+
+        this.markers = markers.map(marker => {
+          return {
+            id: marker.id,
+            position: { 
+              lat: marker.coordinate_lat, 
+              lng: marker.coordinate_lon 
+            }
+          }
         });
-        this.markers = markerList;
+
       });
 
     api.getResorts()

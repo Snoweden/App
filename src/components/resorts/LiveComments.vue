@@ -9,7 +9,8 @@
           <p>{{feed.comment}}</p>
           <p>
             <button v-if="feed.userComment"
-                  @click="onCommentDel(feed.commentId)">Delete
+              @click="onCommentDel(feed.commentId)">
+              Delete
             </button>
           </p>
       </li>
@@ -30,7 +31,8 @@ export default {
   created() {
     feedbackApi.getComments(this.$route.params.id)
       .then(feedback => {
-        this.feedback = feedback.filter(feed => feed.resortId === parseInt(this.$route.params.id) && feed.comment);
+        // Your API already filters based on resort id
+        this.feedback = feedback.filter(feed => feed.comment);
       });
   },
   methods: {
