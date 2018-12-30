@@ -1,17 +1,21 @@
 <template>
   <div id="home">
+    <!-- why h3? -->
     <h3 v-if="user">Hello {{user}}</h3>
-
+    <!-- why h1? -->
     <h1>Welcome to
-    <br />
-    <br />
-    <span id="snoweden">SNOWEDEN</span></h1>
+      <!-- use css margins and padding, not <br> -->
+      <!-- <br />
+      <br /> -->
+      <span id="snoweden">SNOWEDEN</span>
+    </h1>
     <hr />
     <p id="description">
       Displays a Google Map of all the ski resorts in Oregon.  Click on a marker to show more details about said resort.  Give it a rating, add a comment about the weather conditions, or if you don't have an account, you can just look at all the pretty resorts in Oregon.
     </p>
     <img class="homeimg" src="../../assets/willamette_pass_lodge.jpg">
     <div v-if="user">
+      <!-- no, use css to underline -->
       <h4><u>Resort Ratings!</u></h4>
       <table align="center">
         <tbody>
@@ -19,7 +23,6 @@
             :key="stat.resortId">
             <td>{{stat.resort_name}}</td>
             <td>{{stat.avg}}/5</td>
-            <td></td>
           </tr>
         </tbody>
       </table>

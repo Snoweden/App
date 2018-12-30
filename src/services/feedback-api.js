@@ -19,17 +19,30 @@ export default {
     })
       .then(response => response.json())
       .then(feedback => {
-        let info = [];
-        feedback.forEach(feed => {
-          let temp = {};
-          temp.user = feed.username;
-          temp.comment = feed.comment;
-          temp.commentId = feed.commentId;
-          temp.resortId = feed.resortId;
-          feed.profile_id === user.id ? temp.userComment = true : temp.userComment = false;
-          info.push(temp);
+        // See the signs:
+        // (1) declaring array prior to loop:
+        // let info = [];
+        // feedback.forEach(feed => {
+        //   let temp = {};
+        //   temp.user = feed.username;
+        //   temp.comment = feed.comment;
+        //   temp.commentId = feed.commentId;
+        //   temp.resortId = feed.resortId;
+        //   feed.profile_id === user.id ? temp.userComment = true : temp.userComment = false;
+        //   // (2) pushing one item into new array per item in original array
+        //   info.push(temp);
+        // });
+
+        // That's a map!
+        return feedback.map(feed => {
+          return {
+            user: feed.username,
+            comment: feed.comment,
+            commentId: feed.commentId,
+            resortId: feed.resortId,
+            userComment: feed.profile_id === user.id
+          }
         });
-        return info;
       });
   },
 

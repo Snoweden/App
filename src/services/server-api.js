@@ -1,7 +1,6 @@
 import feedbackApi from './feedback-api';
 import userInputApi from './userInput-api';
 
-
 let token = '';
 let user = '';
 

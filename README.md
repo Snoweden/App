@@ -1,5 +1,6 @@
 Snoweden Oregon Resort Directory by Lance Merrill, Shaba Rahavi, Connor Frendt, Christina Herlocker
 
+// initial app feedback/grading commit 
 **Image Credits:**
 
 http://www.pixabay.com
